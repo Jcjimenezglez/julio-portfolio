@@ -90,7 +90,8 @@ export const summary = {
   long: [
     "I'm a designer with 7+ years at Front10 (2019–Feb 2026), a Miami software company building AI-powered products. I started on Billshark as a contract designer — brand, typography, icons, and UX for web and mobile — then went full-time across client work: emails, brand, websites, merchandise, and UI components. In 2023 I moved to WOXO, a sister company in the same group, as Product Owner.",
     "At WOXO I ran product, design, finances, marketing, and support for an AI video tool that was losing about $404K a year. Over three years we cut that deficit to about $34K, grew revenue from ~$75K to a peak year of ~$250K, and scaled to 1,500 creators at our best point — with 325,000+ videos generated and retention around 15–25%.",
-    "Since mid-2025 I've been working mostly in Cursor (90%+). Figma is still my go-to for design systems and UI when the project calls for it. I have a design background, not engineering — but I understand HTML/CSS and can get functional prototypes and products out the door. I founded Shoturo (car listing photos) and Superfocus (focus timer for students).",
+    "Since mid-2025 I've been working mostly in Cursor (90%+). Figma is still my go-to for design systems and UI when the project calls for it. I have a design background, not engineering — but I understand HTML/CSS and can get functional prototypes and products out the door.",
+    "I founded Shoturo (AI car listing photos, ~$600 revenue, paying users) and Superfocus (Pomodoro focus timer for students, ~$300 revenue). Freelance work for A11ySolutions included a full website redesign and the A11yAgent accessibility widget.",
   ],
 };
 
@@ -177,6 +178,19 @@ export const atsKeywords = [
 
 export const experience: Experience[] = [
   {
+    company: "Shoturo",
+    role: "Founder — Product Designer",
+    location: "Miami, FL",
+    startDate: "Mar 2026",
+    endDate: "Present",
+    highlights: [
+      "AI photo editor for car listings — background replacement and lighting fixes on real uploads.",
+      "Live at shoturo.com with paying users and ~$600 revenue since launch.",
+      "Validated demand by DMing Turo hosts before building; credit-based pricing with free trial.",
+      "Built end-to-end in Cursor: marketing site, upload flow, editor, and Stripe payments.",
+    ],
+  },
+  {
     company: "WOXO (Front10 Group)",
     role: "Product Owner",
     location: "Miami, FL",
@@ -192,6 +206,18 @@ export const experience: Experience[] = [
     ],
   },
   {
+    company: "Superfocus",
+    role: "Founder — Product Designer",
+    location: "Miami, FL",
+    startDate: "Oct 2025",
+    endDate: "Present",
+    highlights: [
+      "Focus timer for students — Pomodoro presets, Spotify cassettes, tasks, analytics, and leaderboard.",
+      "Live at superfocus.live with ~$300 revenue; freemium model at $3.99/mo with 7-day trial.",
+      "Built in Cursor with Clerk auth, Stripe payments, and Todoist/Notion integrations.",
+    ],
+  },
+  {
     company: "Front10",
     role: "Product Designer",
     location: "Miami, FL",
@@ -200,7 +226,7 @@ export const experience: Experience[] = [
     highlights: [
       "Started on Billshark (contract) — brand identity, typography, icons, and UX for web and mobile bill-negotiation tools, working directly with their Product Manager.",
       "Moved full-time into product design across client engagements: email design, brand, websites, merchandise, and UI components for multiple clients.",
-      "A11ySolutions (freelance) — redesigned their website and designed the A11yAgent accessibility widget.",
+      "A11ySolutions (freelance) — redesigned their marketing website and designed the A11yAgent accessibility widget.",
       "Built design systems, user flows, and production-ready interfaces for fintech, SaaS, and AI products in agile teams.",
       "Primary tools: Figma through early 2025; transitioned to Cursor-first workflow (90%+) from mid-2025 onward.",
     ],
@@ -801,7 +827,7 @@ export const seo = {
     "Designer based in Miami. 7 years at Front10 (Billshark, WOXO). Founder of Shoturo and Superfocus. Open to remote, hybrid, and relocation within the US.",
   ogTitle: "Julio Jimenez — Designer building AI-native products",
   ogDescription:
-    "Product designer with 7 years at Front10 and two side projects. Case studies: WOXO, Billshark, Shoturo, Superfocus, A11ySolutions.",
+    "Product designer with 7 years at Front10 and two side projects. Case studies: Shoturo, WOXO, A11ySolutions, Superfocus, Front10, Billshark.",
 };
 
 export function getSiteUrl() {

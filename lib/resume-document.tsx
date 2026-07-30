@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   projectBlock: {
-    marginBottom: 10,
+    marginBottom: 9,
   },
   projectTitle: {
     fontFamily: "Helvetica-Bold",
@@ -136,7 +136,7 @@ export function ResumeDocument() {
       title={`${profile.fullName} — Resume`}
       author={profile.fullName}
       subject="AI Product Designer Resume"
-      keywords="AI Product Designer, Product Design, UI/UX, Generative AI, Cursor, Claude, Codex, Figma"
+      keywords="AI Product Designer, Product Design, UI/UX, Generative AI, Cursor, Figma, WOXO, Shoturo"
     >
       <Page size="LETTER" style={styles.page}>
         <Text style={styles.name}>{profile.fullName}</Text>
@@ -214,32 +214,38 @@ export function ResumeDocument() {
             </View>
           ))}
         </View>
+      </Page>
 
+      <Page size="LETTER" style={styles.page}>
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>SELECTED PROJECTS</Text>
+          <Text style={styles.paragraph}>
+            Full case studies with screens and metrics at{" "}
+            <Link src={portfolioUrl} style={styles.link}>
+              {portfolioUrl}
+            </Link>
+            .
+          </Text>
           {projects.map((project) => (
             <View key={project.slug} style={styles.projectBlock}>
               <Text style={styles.projectTitle}>
-                {project.title} — {project.category}
+                {project.title} — {project.role}
               </Text>
               <Text style={styles.projectMeta}>
-                {project.role} | {project.client} | {project.year} | Tools:{" "}
-                {project.tools.join(", ")}
+                {project.year}
+                {project.url ? (
+                  <>
+                    {" | "}
+                    <Link src={project.url} style={styles.link}>
+                      {project.url.replace(/^https?:\/\//, "")}
+                    </Link>
+                  </>
+                ) : null}
+                {" | "}
+                {project.tools.slice(0, 5).join(", ")}
               </Text>
               <Text style={styles.paragraph}>{project.summary}</Text>
-              <Text style={styles.paragraph}>
-                <Text style={styles.label}>Problem: </Text>
-                {project.problem}
-              </Text>
-              <Text style={styles.paragraph}>
-                <Text style={styles.label}>Process: </Text>
-                {project.process}
-              </Text>
-              <Text style={styles.label}>Results:</Text>
-              <BulletList items={project.results} />
-              <Text style={styles.paragraph}>
-                Keywords: {project.keywords.join(", ")}
-              </Text>
+              <BulletList items={project.results.slice(0, 4)} />
             </View>
           ))}
         </View>
