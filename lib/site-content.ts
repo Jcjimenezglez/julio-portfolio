@@ -442,8 +442,53 @@ const a11ySolutionsWork: Project = {
     "Enterprise UX",
   ],
   logo: "/work/a11ysolutions-logo.png",
-  coverImage: "/work/a11ysolutions/widget-profiles.png",
+  coverImage: "/work/a11ysolutions/homepage.png",
   gallery: [
+    {
+      src: "/work/a11ysolutions/homepage.png",
+      caption:
+        "Homepage — \"Digital Accessibility Built for Humans & AI\" with free scan CTA and enterprise client logos.",
+    },
+    {
+      src: "/work/a11ysolutions/transformation.png",
+      caption:
+        "Before vs. after — manual audits (8–12 weeks) vs. automated, VPAT-ready delivery (1–4 weeks).",
+    },
+    {
+      src: "/work/a11ysolutions/services.png",
+      caption:
+        "Services page — audits & VPAT, design review, remediation support, and training with illustrated deliverables.",
+    },
+    {
+      src: "/work/a11ysolutions/a11ydetector.png",
+      caption:
+        "A11yDetector product page — Chrome extension for one-click page scans, reports, and a central dashboard.",
+    },
+    {
+      src: "/work/a11ysolutions/roi.png",
+      caption:
+        "ROI section — accessibility framed as investment (20–30% conversion lift, 200–500% average ROI).",
+    },
+    {
+      src: "/work/a11ysolutions/case-studies.png",
+      caption:
+        "Case studies carousel — Barceló Hotel Group testimonial with enterprise social proof.",
+    },
+    {
+      src: "/work/a11ysolutions/vibra-case-study.png",
+      caption:
+        "Vibra Hotels case study — reducing booking friction while remediation is in progress.",
+    },
+    {
+      src: "/work/a11ysolutions/blog.png",
+      caption:
+        "Blog hub — \"Accessibility insights\" with WCAG, inclusive design, and compliance articles.",
+    },
+    {
+      src: "/work/a11ysolutions/contact.png",
+      caption:
+        "Contact page — lead form with service selector, team reply promise, and Miami HQ details.",
+    },
     {
       src: "/work/a11ysolutions/widget-panel.png",
       caption:
