@@ -115,6 +115,21 @@ export function ProjectPanel({
               View live
             </a>
           ) : null}
+          {project.links && project.links.length > 0 ? (
+            <div className="mt-2 flex flex-wrap justify-center gap-x-4 gap-y-1">
+              {project.links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted underline-offset-4 hover:text-foreground hover:underline"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
         </header>
 
         <div className="space-y-6 px-8 pb-10">

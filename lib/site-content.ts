@@ -32,6 +32,7 @@ export type Project = {
   coverImage?: string;
   gallery?: ProjectImage[];
   relatedLinks?: { label: string; slug: string }[];
+  links?: { label: string; href: string }[];
   tools: string[];
   keywords: string[];
   summary: string;
@@ -167,7 +168,8 @@ export const experience: Experience[] = [
     endDate: "Feb 2026",
     highlights: [
       "Led WOXO — AI video tool that turns a prompt into a YouTube Short — when the product was losing ~$404K a year and had three years to turn around or shut down.",
-      "Cut the annual deficit from ~$404K to ~$34K (~92%) by reducing costs, scaling the team from 15 down to 3, and growing revenue from ~$75K to a peak year of ~$250K.",
+      "Cut annual loss from −$404K (2023) to −$34K (2025) — ~92% reduction.",
+      "Grew revenue from $76K (2023) to a $265K peak year (2024).",
       "Scaled to 1,500 creators at peak, 325,000+ videos generated, ~15–25% retention, and ~2% conversion.",
       "Ran product, design, finances, marketing, support, and weekly meetings — I implemented Scrum myself on this team.",
       "Shipped Adobe Firefly integration, caption animations, creator dashboard, credit pricing, and direct YouTube publishing.",
@@ -220,23 +222,60 @@ export const professionalWork: Project[] = [
       "Prompt-to-Video UX",
     ],
     logo: "/work/woxo-logo.png",
-    coverImage: "/work/woxo-cover.svg",
+    coverImage: "/work/woxo/prompt-home.png",
+    links: [
+      {
+        label: "WOXO on LinkedIn",
+        href: "https://www.linkedin.com/posts/woxo-tech_ai-videogeneration-woxo-activity-7407844019843522560-LW-s",
+      },
+    ],
+    gallery: [
+      {
+        src: "/work/woxo/prompt-home.png",
+        caption:
+          "Redesigned prompt screen — \"What's your video idea?\" with suggested topics and script settings.",
+      },
+      {
+        src: "/work/woxo/video-generated.png",
+        caption:
+          "Video generation view — prompt input, vertical preview, and publish flow for YouTube Shorts.",
+      },
+      {
+        src: "/work/woxo/marketing-save-time.png",
+        caption: "Marketing creative — \"Save time creating video content.\"",
+      },
+      {
+        src: "/work/woxo/financials-2023.png",
+        caption:
+          "2023 — Expenses $480,143 · Revenue $76,406 · Profit −$403,737 (year I joined as Product Owner).",
+      },
+      {
+        src: "/work/woxo/financials-2024.png",
+        caption:
+          "2024 — Expenses $346,996 · Revenue $265,275 · Profit −$81,721.",
+      },
+      {
+        src: "/work/woxo/financials-2025.png",
+        caption:
+          "2025 — Expenses $241,251 · Revenue $207,233 · Profit −$34,018.",
+      },
+    ],
     relatedLinks: [{ label: "Front10", slug: "front10" }],
     summary:
-      "WOXO turns a single prompt into a faceless YouTube Short — script, visuals, voiceover, captions, and publishing to YouTube. I joined as Product Owner in March 2023 when the product was losing about $404K a year. The deal was simple: fix it in three years or shut it down. I ran product, design, finances, marketing, and support. We got the deficit down ~92%, revenue up to a $250K peak year, and scaled to 1,500 creators at our best point.",
+      "WOXO turns a single prompt into a faceless YouTube Short — script, visuals, voiceover, captions, and publishing to YouTube. I joined as Product Owner in March 2023 when the product lost about $404K that year. Over three years we cut the annual loss to ~$34K, grew revenue from $76K to a $265K peak, and scaled to 1,500 creators at our best point.",
     problem:
-      "When I started in early 2023, WOXO had the tech but the numbers didn't work. Costs were around $480K against ~$76K in revenue — roughly a $404K hole. Leadership gave us three years to fix it or close the product.\n\nCreators wanted a faster way to make faceless YouTube Shorts without filming or editing. But we couldn't just chase features — every decision had to balance growth with cost.\n\nOn top of that, generative AI products are hard to design for: long wait times, outputs that miss the mark, confusing credit pricing, and users dropping off before they see their first video.",
+      "When I started in 2023, the numbers were rough. That year: $480K in expenses, $76K in revenue, −$404K profit. Leadership gave us three years to fix it or shut WOXO down.\n\nCreators wanted a faster way to make faceless YouTube Shorts without filming or editing. But we couldn't just chase features — every decision had to balance growth with cost.\n\nGenerative AI products are also hard to design for: long wait times, outputs that miss, confusing credit pricing, and users dropping off before their first video.",
     process:
-      "First thing I did was map where the money was going — AI models, infrastructure, tools, payroll — against what each plan tier actually brought in. That told us what to cut and what to keep.\n\nI scaled the team from 15 people at peak down to 3 by the end. I ran the weekly meetings, set the roadmap, handled support tickets, wrote marketing copy, and designed the product. I also put Scrum in place myself — something I had to learn on the job at WOXO.\n\nOn the product side, I designed a 3-step flow: prompt → AI builds the video → publish to YouTube. That included the creator dashboard, credit pricing (free, Starter, Creator), onboarding, and all the loading/error states that come with AI generation.\n\nWe shipped Adobe Firefly for visuals, caption styles (Kinetic, Karaoke, Standard), and direct YouTube posting. I ran A/B tests on pricing and onboarding to push conversion (~2%) and retention (15–25%).\n\nWOXO used OpenAI for script generation and the core video pipeline — that's where the 10B+ tokens processed number comes from.\n\nBy early 2026, costs were down to ~$241K and revenue was at ~$207K. The deficit was ~$34K. We never hit a full year in the green, and the project wound down — but we got a lot closer than where we started.",
+      "First I mapped where the money went — AI models, infrastructure, tools, payroll — against what each plan tier brought in.\n\nI scaled the team from 15 at peak down to 3. I ran weekly meetings, support, marketing copy, and the product design. I implemented Scrum myself at WOXO.\n\nOn the product side I redesigned core screens: the prompt home (\"What's your video idea?\"), the generation preview, and the publish flow. We built prompt → AI builds video → post to YouTube, with credit pricing, onboarding, and loading/error states for async generation.\n\nWe shipped Adobe Firefly, caption styles (Kinetic, Karaoke, Standard), and direct YouTube posting. A/B tests on pricing and onboarding — conversion around ~2%, retention 15–25%.\n\nWOXO ran on OpenAI for scripts and the video pipeline (10B+ tokens processed).\n\nBy year: 2023 — −$404K profit · 2024 — −$82K · 2025 — −$34K. Revenue went from $76K → $265K → $207K. We never hit a full calendar year in the green, but the trend moved the right way.",
     results: [
-      "Cut annual deficit from ~$404K to ~$34K (~92%) over three years.",
-      "Grew revenue from ~$75K to a peak year of ~$250K.",
-      "Scaled to 1,500 creators at peak; 325,000+ videos generated.",
-      "Retention held at ~15–25%; conversion around ~2%.",
+      "2023: $480K expenses · $76K revenue · −$404K profit (starting point).",
+      "2024: $347K expenses · $265K revenue · −$82K profit.",
+      "2025: $241K expenses · $207K revenue · −$34K profit.",
+      "1,500 creators at peak; 325,000+ videos generated.",
+      "Retention ~15–25%; conversion ~2%.",
+      "Redesigned prompt, generation, and publish screens.",
       "Rightsized team from 15 to 3 while still shipping features.",
-      "Built prompt → generate → publish workflow with direct YouTube posting.",
-      "Shipped Adobe Firefly integration, caption animations, and credit-based pricing.",
-      "Ran product, design, finances, marketing, and support — not just design.",
+      "Shipped Adobe Firefly, caption animations, and YouTube publishing.",
     ],
   },
   {
