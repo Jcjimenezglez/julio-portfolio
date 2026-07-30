@@ -17,6 +17,20 @@ export type ProjectImage = {
   caption: string;
 };
 
+export type ProjectFinancialRow = {
+  year: string;
+  expenses: string;
+  revenue: string;
+  profit: string;
+  note?: string;
+};
+
+export type ProjectEmbed = {
+  label: string;
+  embedUrl: string;
+  type: "youtube" | "linkedin";
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -31,6 +45,8 @@ export type Project = {
   logo: string;
   coverImage?: string;
   gallery?: ProjectImage[];
+  financials?: ProjectFinancialRow[];
+  embeds?: ProjectEmbed[];
   relatedLinks?: { label: string; slug: string }[];
   links?: { label: string; href: string }[];
   tools: string[];
@@ -223,10 +239,48 @@ export const professionalWork: Project[] = [
     ],
     logo: "/work/woxo-logo.png",
     coverImage: "/work/woxo/prompt-home.png",
-    links: [
+    financials: [
+      {
+        year: "2023",
+        expenses: "$480,142.54",
+        revenue: "$76,405.57",
+        profit: "−$403,736.97",
+        note: "Year I joined as Product Owner",
+      },
+      {
+        year: "2024",
+        expenses: "$346,995.54",
+        revenue: "$265,274.84",
+        profit: "−$81,720.70",
+      },
+      {
+        year: "2025",
+        expenses: "$241,251.36",
+        revenue: "$207,233.34",
+        profit: "−$34,018.02",
+      },
+    ],
+    embeds: [
+      {
+        label: "WOXO product video",
+        type: "youtube",
+        embedUrl: "https://www.youtube.com/embed/hgFthGfNeVE",
+      },
+      {
+        label: "WOXO demo",
+        type: "youtube",
+        embedUrl: "https://www.youtube.com/embed/bXc42CVRgmo",
+      },
+      {
+        label: "WOXO creator workflow",
+        type: "youtube",
+        embedUrl: "https://www.youtube.com/embed/GCWnUO8SNJo",
+      },
       {
         label: "WOXO on LinkedIn",
-        href: "https://www.linkedin.com/posts/woxo-tech_ai-videogeneration-woxo-activity-7407844019843522560-LW-s",
+        type: "linkedin",
+        embedUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:activity:7407844019843522560",
       },
     ],
     gallery: [
@@ -244,21 +298,6 @@ export const professionalWork: Project[] = [
         src: "/work/woxo/marketing-save-time.png",
         caption: "Marketing creative — \"Save time creating video content.\"",
       },
-      {
-        src: "/work/woxo/financials-2023.png",
-        caption:
-          "2023 — Expenses $480,143 · Revenue $76,406 · Profit −$403,737 (year I joined as Product Owner).",
-      },
-      {
-        src: "/work/woxo/financials-2024.png",
-        caption:
-          "2024 — Expenses $346,996 · Revenue $265,275 · Profit −$81,721.",
-      },
-      {
-        src: "/work/woxo/financials-2025.png",
-        caption:
-          "2025 — Expenses $241,251 · Revenue $207,233 · Profit −$34,018.",
-      },
     ],
     relatedLinks: [{ label: "Front10", slug: "front10" }],
     summary:
@@ -268,9 +307,8 @@ export const professionalWork: Project[] = [
     process:
       "First I mapped where the money went — AI models, infrastructure, tools, payroll — against what each plan tier brought in.\n\nI scaled the team from 15 at peak down to 3. I ran weekly meetings, support, marketing copy, and the product design. I implemented Scrum myself at WOXO.\n\nOn the product side I redesigned core screens: the prompt home (\"What's your video idea?\"), the generation preview, and the publish flow. We built prompt → AI builds video → post to YouTube, with credit pricing, onboarding, and loading/error states for async generation.\n\nWe shipped Adobe Firefly, caption styles (Kinetic, Karaoke, Standard), and direct YouTube posting. A/B tests on pricing and onboarding — conversion around ~2%, retention 15–25%.\n\nWOXO ran on OpenAI for scripts and the video pipeline (10B+ tokens processed).\n\nBy year: 2023 — −$404K profit · 2024 — −$82K · 2025 — −$34K. Revenue went from $76K → $265K → $207K. We never hit a full calendar year in the green, but the trend moved the right way.",
     results: [
-      "2023: $480K expenses · $76K revenue · −$404K profit (starting point).",
-      "2024: $347K expenses · $265K revenue · −$82K profit.",
-      "2025: $241K expenses · $207K revenue · −$34K profit.",
+      "Cut annual loss from −$404K (2023) to −$34K (2025) — ~92% reduction.",
+      "Grew revenue from $76K (2023) to a $265K peak (2024).",
       "1,500 creators at peak; 325,000+ videos generated.",
       "Retention ~15–25%; conversion ~2%.",
       "Redesigned prompt, generation, and publish screens.",

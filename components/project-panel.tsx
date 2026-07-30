@@ -58,6 +58,90 @@ function ProjectGallery({ images }: { images: NonNullable<Project["gallery"]> })
   );
 }
 
+function ProjectFinancials({
+  rows,
+}: {
+  rows: NonNullable<Project["financials"]>;
+}) {
+  return (
+    <div className="mt-4 overflow-x-auto rounded-xl border border-border/80">
+      <table className="w-full min-w-[28rem] text-left text-sm">
+        <thead>
+          <tr className="border-b border-border/80 bg-white/[0.04]">
+            <th className="px-4 py-3 font-medium text-muted">Year</th>
+            <th className="px-4 py-3 font-medium text-muted">Expenses</th>
+            <th className="px-4 py-3 font-medium text-muted">Revenue</th>
+            <th className="px-4 py-3 font-medium text-muted">Profit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr
+              key={row.year}
+              className="border-b border-border/50 last:border-b-0"
+            >
+              <td className="px-4 py-3 text-foreground">
+                {row.year}
+                {row.note ? (
+                  <span className="mt-0.5 block text-xs text-muted">
+                    {row.note}
+                  </span>
+                ) : null}
+              </td>
+              <td className="px-4 py-3 text-foreground">{row.expenses}</td>
+              <td className="px-4 py-3 text-foreground">{row.revenue}</td>
+              <td className="px-4 py-3 text-foreground">{row.profit}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function ProjectEmbeds({ embeds }: { embeds: NonNullable<Project["embeds"]> }) {
+  return (
+    <div className="mt-4 space-y-6">
+      {embeds.map((embed) => (
+        <figure
+          key={embed.embedUrl}
+          className="overflow-hidden rounded-xl border border-border/80"
+        >
+          <div
+            className={
+              embed.type === "youtube"
+                ? "aspect-video w-full bg-black"
+                : "w-full bg-[#F7F6F2]"
+            }
+          >
+            <iframe
+              src={embed.embedUrl}
+              title={embed.label}
+              className="h-full w-full"
+              style={
+                embed.type === "linkedin"
+                  ? { minHeight: "560px", height: "560px" }
+                  : undefined
+              }
+              allow={
+                embed.type === "youtube"
+                  ? "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  : undefined
+              }
+              allowFullScreen={embed.type === "youtube"}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <figcaption className="border-t border-border/80 px-4 py-3 text-sm text-muted">
+            {embed.label}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  );
+}
+
 export function ProjectPanel({
   project,
   onClose,
@@ -197,6 +281,24 @@ export function ProjectPanel({
                 Screens
               </p>
               <ProjectGallery images={project.gallery} />
+            </section>
+          ) : null}
+
+          {project.financials && project.financials.length > 0 ? (
+            <section>
+              <p className="text-[32px] font-extrabold leading-tight text-foreground">
+                Financials
+              </p>
+              <ProjectFinancials rows={project.financials} />
+            </section>
+          ) : null}
+
+          {project.embeds && project.embeds.length > 0 ? (
+            <section>
+              <p className="text-[32px] font-extrabold leading-tight text-foreground">
+                Video
+              </p>
+              <ProjectEmbeds embeds={project.embeds} />
             </section>
           ) : null}
 
