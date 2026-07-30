@@ -560,7 +560,74 @@ export const personalWork: Project[] = [
       "SaaS",
     ],
     logo: "/work/shoturo-logo.svg",
-    coverImage: "/work/shoturo-cover.webp",
+    coverImage: "/work/shoturo/homepage.png",
+    gallery: [
+      {
+        src: "/work/shoturo/homepage.png",
+        caption:
+          "Homepage — \"Buyers decide on your photo before they read the listing\" with interactive before/after slider.",
+      },
+      {
+        src: "/work/shoturo/compare-cybertruck.png",
+        caption:
+          "Before/after — Cybertruck background replaced from residential driveway to urban skyline.",
+      },
+      {
+        src: "/work/shoturo/compare-classic.png",
+        caption:
+          "Before/after — classic Thunderbird moved from roadside hedge to cobblestone European street.",
+      },
+      {
+        src: "/work/shoturo/compare-model-y.png",
+        caption:
+          "Before/after — Model Y background swapped from shoreline to Miami skyline with yacht marina.",
+      },
+      {
+        src: "/work/shoturo/compare-silverado.png",
+        caption:
+          "Before/after — Silverado from parking lot with oak tree to tropical beach with palm trees.",
+      },
+      {
+        src: "/work/shoturo/gallery.png",
+        caption:
+          "In-app gallery — \"See what Shoturo can do\" with real edited listing photos.",
+      },
+      {
+        src: "/work/shoturo/testimonials.png",
+        caption:
+          "Social proof — Turo host testimonials from CAR-GA Management and Shaddai Car Rental, Miami.",
+      },
+      {
+        src: "/work/shoturo/pricing.png",
+        caption:
+          "Pricing — credit packs from $29.99 (Casual host) to $499.99 (Large fleet), no subscription.",
+      },
+      {
+        src: "/work/shoturo/editor.png",
+        caption:
+          "Editor — upload flow with location, lighting, and one-click Improve action.",
+      },
+      {
+        src: "/work/shoturo/pick-location.png",
+        caption:
+          "Pick location — city search and Miami neighborhood backgrounds (Brickell, Coconut Grove, Design District).",
+      },
+      {
+        src: "/work/shoturo/pick-lighting.png",
+        caption:
+          "Pick lighting — keep original, sunrise, day, or sunset lighting styles.",
+      },
+      {
+        src: "/work/shoturo/generation-progress.png",
+        caption:
+          "Generation progress — real-time status as location and lighting are applied.",
+      },
+      {
+        src: "/work/shoturo/compare-view.png",
+        caption:
+          "Result view — before/compare/after slider with location, lighting metadata, and download.",
+      },
+    ],
     relatedLinks: [{ label: "Superfocus", slug: "superfocus" }],
     summary:
       "Shoturo is an AI photo editor for car listings — background replacement and lighting fixes on real uploads. I started it March 15, 2026 after talking to Turo hosts who told me bad photos were costing them bookings. It's live, has paying users, and has made about $600 so far. Still early — I'm focused on growth, better edits, and getting in front of more sellers.",
