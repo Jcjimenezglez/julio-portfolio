@@ -1,5 +1,6 @@
 import {
   Document,
+  Font,
   Link,
   Page,
   StyleSheet,
@@ -18,101 +19,161 @@ import {
   summary,
 } from "@/lib/site-content";
 
+Font.registerHyphenationCallback((word) => [word]);
+
 const styles = StyleSheet.create({
   page: {
     paddingTop: 40,
     paddingBottom: 40,
     paddingHorizontal: 48,
     fontFamily: "Helvetica",
-    fontSize: 10,
-    lineHeight: 1.45,
+    fontSize: 10.5,
+    lineHeight: 1.65,
     color: "#111111",
   },
   name: {
     fontSize: 22,
     fontFamily: "Helvetica-Bold",
-    marginBottom: 4,
+    marginBottom: 6,
+    lineHeight: 1.2,
   },
   title: {
     fontSize: 12,
-    marginBottom: 10,
+    marginBottom: 12,
     color: "#333333",
+    lineHeight: 1.4,
   },
-  contactRow: {
+  contactBlock: {
+    marginBottom: 18,
+    gap: 5,
+  },
+  contactLine: {
     fontSize: 9.5,
-    marginBottom: 16,
+    color: "#444444",
+    lineHeight: 1.55,
+  },
+  contactLinkRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "baseline",
+    gap: 4,
+  },
+  contactLabel: {
+    fontSize: 9.5,
     color: "#444444",
   },
   link: {
     color: "#111111",
     textDecoration: "none",
+    fontSize: 9.5,
+  },
+  linkLine: {
+    color: "#111111",
+    textDecoration: "none",
+    fontSize: 9.5,
+    marginBottom: 4,
   },
   section: {
-    marginBottom: 14,
+    marginBottom: 16,
   },
   sectionTitle: {
     fontSize: 10,
     fontFamily: "Helvetica-Bold",
     letterSpacing: 1.2,
-    marginBottom: 8,
-    paddingBottom: 4,
+    marginBottom: 10,
+    paddingBottom: 5,
     borderBottomWidth: 1,
     borderBottomColor: "#dddddd",
+    lineHeight: 1.3,
   },
   paragraph: {
-    marginBottom: 6,
-    textAlign: "justify",
+    marginBottom: 8,
+    lineHeight: 1.65,
   },
   skillGroup: {
-    marginBottom: 5,
+    marginBottom: 7,
+    lineHeight: 1.55,
   },
   skillLabel: {
     fontFamily: "Helvetica-Bold",
-    marginBottom: 2,
+    marginBottom: 3,
   },
   jobHeader: {
-    marginBottom: 4,
+    marginBottom: 5,
   },
   jobTitle: {
     fontFamily: "Helvetica-Bold",
     fontSize: 10.5,
+    lineHeight: 1.4,
   },
   jobMeta: {
     color: "#555555",
-    marginBottom: 4,
+    marginBottom: 5,
+    lineHeight: 1.5,
   },
   bulletRow: {
     flexDirection: "row",
-    marginBottom: 3,
+    marginBottom: 5,
     paddingRight: 8,
   },
   bullet: {
-    width: 10,
+    width: 12,
+    lineHeight: 1.6,
   },
   bulletText: {
     flex: 1,
+    lineHeight: 1.6,
   },
   projectBlock: {
-    marginBottom: 9,
+    marginBottom: 11,
   },
   projectTitle: {
     fontFamily: "Helvetica-Bold",
     fontSize: 10.5,
-    marginBottom: 2,
+    marginBottom: 3,
+    lineHeight: 1.4,
   },
   projectMeta: {
     color: "#555555",
-    marginBottom: 4,
-  },
-  label: {
-    fontFamily: "Helvetica-Bold",
+    marginBottom: 5,
+    lineHeight: 1.5,
   },
   footer: {
-    marginTop: 8,
+    marginTop: 10,
     fontSize: 9,
     color: "#666666",
+    lineHeight: 1.5,
   },
 });
+
+function formatLinkLabel(href: string) {
+  return href.replace(/^https?:\/\//, "").replace(/\/$/, "");
+}
+
+function ResumeLink({
+  href,
+  label,
+}: {
+  href: string;
+  label?: string;
+}) {
+  return (
+    <Link src={href} style={styles.linkLine} wrap={false}>
+      {label ?? formatLinkLabel(href)}
+    </Link>
+  );
+}
+
+function ContactLinkRow({ label, href }: { label: string; href: string }) {
+  return (
+    <View style={styles.contactLinkRow}>
+      <Text style={styles.contactLabel}>{label}:</Text>
+      <Link src={href} style={styles.link} wrap={false}>
+        {formatLinkLabel(href)}
+      </Link>
+    </View>
+  );
+}
 
 function BulletList({ items }: { items: string[] }) {
   return (
@@ -142,32 +203,17 @@ export function ResumeDocument() {
         <Text style={styles.name}>{profile.fullName}</Text>
         <Text style={styles.title}>{profile.title}</Text>
 
-        <Text style={styles.contactRow}>
-          {profile.email}
-          {"  |  "}
-          {profile.phone}
-          {"  |  "}
-          {profile.location}
-          {"  |  "}
-          Portfolio:{" "}
-          <Link src={portfolioUrl} style={styles.link}>
-            {portfolioUrl}
-          </Link>
+        <View style={styles.contactBlock}>
+          <Text style={styles.contactLine}>
+            {profile.email}  |  {profile.phone}
+          </Text>
+          <Text style={styles.contactLine}>{profile.location}</Text>
+          <ContactLinkRow label="Portfolio" href={portfolioUrl} />
           {linkedIn ? (
-            <>
-              {"  |  "}
-              LinkedIn:{" "}
-              <Link src={linkedIn.href} style={styles.link}>
-                {linkedIn.href}
-              </Link>
-            </>
+            <ContactLinkRow label="LinkedIn" href={linkedIn.href} />
           ) : null}
-          {"  |  "}
-          GitHub:{" "}
-          <Link src={profile.github} style={styles.link}>
-            {profile.github}
-          </Link>
-        </Text>
+          <ContactLinkRow label="GitHub" href={profile.github} />
+        </View>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>PROFESSIONAL SUMMARY</Text>
@@ -220,30 +266,18 @@ export function ResumeDocument() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>SELECTED PROJECTS</Text>
           <Text style={styles.paragraph}>
-            Full case studies with screens and metrics at{" "}
-            <Link src={portfolioUrl} style={styles.link}>
-              {portfolioUrl}
-            </Link>
-            .
+            Full case studies with screens and metrics:
           </Text>
+          <ResumeLink href={portfolioUrl} />
           {projects.map((project) => (
             <View key={project.slug} style={styles.projectBlock}>
               <Text style={styles.projectTitle}>
                 {project.title} — {project.role}
               </Text>
               <Text style={styles.projectMeta}>
-                {project.year}
-                {project.url ? (
-                  <>
-                    {" | "}
-                    <Link src={project.url} style={styles.link}>
-                      {project.url.replace(/^https?:\/\//, "")}
-                    </Link>
-                  </>
-                ) : null}
-                {" | "}
-                {project.tools.slice(0, 5).join(", ")}
+                {project.year} | {project.tools.slice(0, 5).join(", ")}
               </Text>
+              {project.url ? <ResumeLink href={project.url} /> : null}
               <Text style={styles.paragraph}>{project.summary}</Text>
               <BulletList items={project.results.slice(0, 4)} />
             </View>
@@ -265,18 +299,14 @@ export function ResumeDocument() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>PORTFOLIO & LINKS</Text>
           <Text style={styles.paragraph}>
-            Online portfolio and case studies:{" "}
-            <Link src={portfolioUrl} style={styles.link}>
-              {portfolioUrl}
-            </Link>
+            Online portfolio and case studies:
           </Text>
+          <ResumeLink href={portfolioUrl} />
           {socialLinks.map((link) => (
-            <Text key={link.label} style={styles.paragraph}>
-              {link.label}:{" "}
-              <Link src={link.href} style={styles.link}>
-                {link.href}
-              </Link>
-            </Text>
+            <View key={link.label} style={{ marginBottom: 4 }}>
+              <Text style={styles.contactLabel}>{link.label}:</Text>
+              <ResumeLink href={link.href} />
+            </View>
           ))}
           <Text style={styles.footer}>
             Resume generated from portfolio website. Last updated automatically
