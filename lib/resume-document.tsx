@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 48,
     fontFamily: "Helvetica",
     fontSize: 10.5,
-    lineHeight: 1.65,
+    lineHeight: 1.45,
     color: "#111111",
   },
   name: {
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   contactLine: {
     fontSize: 9.5,
     color: "#444444",
-    lineHeight: 1.55,
+    lineHeight: 1.4,
   },
   contactLinkRow: {
     flexDirection: "row",
@@ -87,12 +87,12 @@ const styles = StyleSheet.create({
     lineHeight: 1.3,
   },
   paragraph: {
-    marginBottom: 8,
-    lineHeight: 1.65,
+    marginBottom: 6,
+    lineHeight: 1.45,
   },
   skillGroup: {
-    marginBottom: 7,
-    lineHeight: 1.55,
+    marginBottom: 6,
+    lineHeight: 1.4,
   },
   skillLabel: {
     fontFamily: "Helvetica-Bold",
@@ -108,21 +108,21 @@ const styles = StyleSheet.create({
   },
   jobMeta: {
     color: "#555555",
-    marginBottom: 5,
-    lineHeight: 1.5,
+    marginBottom: 4,
+    lineHeight: 1.4,
   },
   bulletRow: {
     flexDirection: "row",
-    marginBottom: 5,
+    marginBottom: 4,
     paddingRight: 8,
   },
   bullet: {
     width: 12,
-    lineHeight: 1.6,
+    lineHeight: 1.45,
   },
   bulletText: {
     flex: 1,
-    lineHeight: 1.6,
+    lineHeight: 1.45,
   },
   projectBlock: {
     marginBottom: 11,
@@ -135,14 +135,14 @@ const styles = StyleSheet.create({
   },
   projectMeta: {
     color: "#555555",
-    marginBottom: 5,
-    lineHeight: 1.5,
+    marginBottom: 4,
+    lineHeight: 1.4,
   },
   footer: {
-    marginTop: 10,
+    marginTop: 8,
     fontSize: 9,
     color: "#666666",
-    lineHeight: 1.5,
+    lineHeight: 1.4,
   },
 });
 
