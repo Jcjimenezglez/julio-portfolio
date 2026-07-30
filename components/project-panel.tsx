@@ -65,13 +65,15 @@ function ProjectFinancials({
 }) {
   return (
     <div className="mt-4 overflow-x-auto rounded-xl border border-border/80">
-      <table className="w-full min-w-[28rem] text-left text-sm">
+      <table className="w-full min-w-[28rem] table-fixed text-left text-sm">
         <thead>
           <tr className="border-b border-border/80 bg-white/[0.04]">
-            <th className="px-4 py-3 font-medium text-muted">Year</th>
-            <th className="px-4 py-3 font-medium text-muted">Expenses</th>
-            <th className="px-4 py-3 font-medium text-muted">Revenue</th>
-            <th className="px-4 py-3 font-medium text-muted">Profit</th>
+            <th className="w-[7.5rem] px-3 py-3 font-medium text-muted">
+              Year
+            </th>
+            <th className="px-3 py-3 font-medium text-muted">Expenses</th>
+            <th className="px-3 py-3 font-medium text-muted">Revenue</th>
+            <th className="px-3 py-3 font-medium text-muted">Profit</th>
           </tr>
         </thead>
         <tbody>
@@ -80,17 +82,23 @@ function ProjectFinancials({
               key={row.year}
               className="border-b border-border/50 last:border-b-0"
             >
-              <td className="px-4 py-3 text-foreground">
+              <td className="w-[7.5rem] align-top px-3 py-3 text-foreground">
                 {row.year}
                 {row.note ? (
-                  <span className="mt-0.5 block text-xs text-muted">
+                  <span className="mt-0.5 block text-xs leading-snug text-muted">
                     {row.note}
                   </span>
                 ) : null}
               </td>
-              <td className="px-4 py-3 text-foreground">{row.expenses}</td>
-              <td className="px-4 py-3 text-foreground">{row.revenue}</td>
-              <td className="px-4 py-3 text-foreground">{row.profit}</td>
+              <td className="whitespace-nowrap px-3 py-3 tabular-nums text-foreground">
+                {row.expenses}
+              </td>
+              <td className="whitespace-nowrap px-3 py-3 tabular-nums text-foreground">
+                {row.revenue}
+              </td>
+              <td className="whitespace-nowrap px-3 py-3 tabular-nums text-foreground">
+                {row.profit}
+              </td>
             </tr>
           ))}
         </tbody>
