@@ -610,7 +610,39 @@ export const personalWork: Project[] = [
       "Focus Timer",
     ],
     logo: "/work/superfocus-logo.png",
-    coverImage: "/work/superfocus-cover.png",
+    coverImage: "/work/superfocus/focus-session.png",
+    gallery: [
+      {
+        src: "/work/superfocus/focus-session.png",
+        caption:
+          "Focus session — Pomodoro timer with ambient cassette background and Spotify playback in one screen.",
+      },
+      {
+        src: "/work/superfocus/timers.png",
+        caption:
+          "Timer presets — Sprint, Pomodoro, Focus, Flow State, Marathon, and Deep Work with custom durations.",
+      },
+      {
+        src: "/work/superfocus/cassettes.png",
+        caption:
+          "Cassettes — ambient sound environments with Spotify integration, presets, and public community cassettes.",
+      },
+      {
+        src: "/work/superfocus/tasks.png",
+        caption:
+          "Tasks — built-in to-do list with Todoist import and create-your-own task flow.",
+      },
+      {
+        src: "/work/superfocus/analytics.png",
+        caption:
+          "Analytics — focus level, day streak, weekly activity chart, and heatmap.",
+      },
+      {
+        src: "/work/superfocus/leaderboard.png",
+        caption:
+          "Leaderboard — rank by total focus time with 100+ members and progress toward the next rank.",
+      },
+    ],
     relatedLinks: [{ label: "Shoturo", slug: "shoturo" }],
     summary:
       "Superfocus is a focus timer I built for high school and college students. Nothing fancy — a Pomodoro timer, a background sound (with Spotify), and your task list. You can also connect Notion and Todoist. I launched it in October 2025. It's active, slower to grow than Shoturo, and has made about $300. I work on it when I can.",
@@ -647,12 +679,12 @@ export const workSections: WorkSection[] = [
 ];
 
 export const projects: Project[] = [
+  personalWork[0], // Shoturo
   professionalWork[0], // WOXO
+  a11ySolutionsWork,
+  personalWork[1], // Superfocus
   professionalWork[1], // Front10
   professionalWork[2], // Billshark
-  personalWork[0], // Shoturo
-  personalWork[1], // Superfocus
-  a11ySolutionsWork,
 ];
 
 export const testimonials = [
