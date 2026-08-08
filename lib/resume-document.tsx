@@ -196,8 +196,8 @@ export function ResumeDocument() {
     <Document
       title={`${profile.fullName} — Resume`}
       author={profile.fullName}
-      subject="AI Product Designer Resume"
-      keywords="AI Product Designer, Product Design, UI/UX, Generative AI, Cursor, Figma, WOXO, Shoturo"
+      subject="Product Engineer Resume"
+      keywords="Product Engineer, Product Design, UI/UX, Generative AI, Cursor, Figma, WOXO, Shoturo"
     >
       <Page size="LETTER" style={styles.page}>
         <Text style={styles.name}>{profile.fullName}</Text>

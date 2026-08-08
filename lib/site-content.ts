@@ -68,7 +68,7 @@ export const profile = {
   firstName: "Julio",
   lastName: "Jimenez",
   fullName: "Julio Jimenez",
-  title: "AI Product Designer",
+  title: "Product Engineer",
   headline: "Designer building AI-native products.",
   email: "jcjimenezglez@gmail.com",
   phone: "+1 (786) 973-1476",
@@ -164,7 +164,7 @@ export const atsKeywords = [
   ...skillGroups.ai,
   ...skillGroups.tools,
   ...skillGroups.methods,
-  "AI Product Designer",
+  "Product Engineer",
   "Generative AI",
   "AI-Native Product Design",
   "SaaS",
@@ -822,7 +822,7 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const seo = {
-  title: "Julio Jimenez — AI Product Designer",
+  title: "Julio Jimenez — Product Engineer",
   description:
     "Designer based in Miami. 7 years at Front10 (Billshark, WOXO). Founder of Shoturo and Superfocus. Open to remote, hybrid, and relocation within the US.",
   ogTitle: "Julio Jimenez — Designer building AI-native products",
