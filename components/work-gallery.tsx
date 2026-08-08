@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import type { Project } from "@/lib/site-content";
-import { allCaseStudies, profile, workSections } from "@/lib/site-content";
+import { allCaseStudies, workSections } from "@/lib/site-content";
 import { ProjectCover, ProjectLogo } from "@/components/project-media";
 import { ProjectPanel } from "@/components/project-panel";
 
@@ -53,11 +53,6 @@ export function WorkGallery() {
   return (
     <section id="work" className="px-6 pb-24 pt-28 md:pt-32">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-8 max-w-2xl">
-          <h1>{profile.workTitle}</h1>
-          <p className="mt-1">{profile.workSubtitle}</p>
-        </div>
-
         <div className="space-y-14">
           {workSections.map((section) => (
             <div key={section.id}>

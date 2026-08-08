@@ -78,8 +78,6 @@ export const profile = {
   linkedIn: "https://www.linkedin.com/in/julio-jimenez-9a114a12b/",
   github: "https://github.com/Jcjimenezglez",
   cursorProfile: "https://cursor.com/@jcjimenezglez",
-  workTitle: "Julio's Work",
-  workSubtitle: "Selected design & engineering work. Tap each card to learn more.",
   portfolioPath: "/",
   resumePath: "/api/resume",
 };
