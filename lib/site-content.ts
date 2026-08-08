@@ -182,19 +182,6 @@ export const atsKeywords = [
 
 export const experience: Experience[] = [
   {
-    company: "Shoturo",
-    role: "Founder — Design Engineer",
-    location: "Miami, FL",
-    startDate: "Mar 2026",
-    endDate: "Present",
-    highlights: [
-      "AI photo editor for car listings — background replacement and lighting fixes on real uploads.",
-      "Live at shoturo.com with paying users and ~$600 revenue since launch.",
-      "Validated demand by DMing Turo hosts before building; credit-based pricing with free trial.",
-      "Designed and built end-to-end in TypeScript, React, and Next.js: marketing site, upload flow, editor, and Stripe payments.",
-    ],
-  },
-  {
     company: "WOXO (Front10 Group)",
     role: "Product Owner",
     location: "Miami, FL",
@@ -210,18 +197,6 @@ export const experience: Experience[] = [
     ],
   },
   {
-    company: "Superfocus",
-    role: "Founder — Design Engineer",
-    location: "Miami, FL",
-    startDate: "Oct 2025",
-    endDate: "Present",
-    highlights: [
-      "Focus timer for students — Pomodoro presets, Spotify cassettes, tasks, analytics, and leaderboard.",
-      "Live at superfocus.live with ~$300 revenue; freemium model at $3.99/mo with 7-day trial.",
-      "Designed and shipped in TypeScript, React, and Next.js with Clerk auth, Stripe payments, and Todoist/Notion integrations.",
-    ],
-  },
-  {
     company: "Front10",
     role: "Product Designer",
     location: "Miami, FL",
@@ -230,9 +205,21 @@ export const experience: Experience[] = [
     highlights: [
       "Started on Billshark (contract) — brand identity, typography, icons, and UX for web and mobile bill-negotiation tools, working directly with their Product Manager.",
       "Moved full-time into product design across client engagements: email design, brand, websites, merchandise, and UI components for multiple clients.",
-      "A11ySolutions (freelance) — redesigned their marketing website and designed the A11yAgent accessibility widget.",
       "Built design systems and shipped production UI for fintech, SaaS, and AI products in agile teams.",
       "Figma through early 2025; transitioned to design-to-code workflow in TypeScript and React via Cursor (90%+) from mid-2025 onward.",
+    ],
+  },
+  {
+    company: "Billshark",
+    role: "UX/UI Designer",
+    location: "Miami, FL",
+    startDate: "2019",
+    endDate: "2019",
+    highlights: [
+      "First project at Front10 — contract engagement designing brand identity, custom typography, icons, and UX for Billshark's fintech platform.",
+      "Delivered UX for onboarding, bill submission, savings estimates, and subscription management.",
+      "Worked task-by-task with Billshark's PM — designs were reviewed and accepted on their timeline.",
+      "Built responsive web and mobile UI for a fintech product handling sensitive financial data.",
     ],
   },
 ];
@@ -763,26 +750,26 @@ export const personalWork: Project[] = [
 export const workSections: WorkSection[] = [
   {
     id: "professional",
-    title: "Professional Work",
-    description: "Design and engineering work at Front10 and client projects.",
+    title: "Work Experience",
+    description: "Product design and ownership at Front10, WOXO, and Billshark.",
     projects: professionalWork,
   },
   {
     id: "personal",
-    title: "Personal Work",
-    description: "Side projects designed and built in TypeScript and React.",
-    projects: personalWork,
+    title: "Projects",
+    description:
+      "Freelance and personal products designed and built in TypeScript and React.",
+    projects: [personalWork[0], a11ySolutionsWork, personalWork[1]],
   },
 ];
 
 export const projects: Project[] = [
   personalWork[0], // Shoturo
-  professionalWork[0], // WOXO
   a11ySolutionsWork,
   personalWork[1], // Superfocus
-  professionalWork[1], // Front10
-  professionalWork[2], // Billshark
 ];
+
+export const allCaseStudies: Project[] = [...professionalWork, ...projects];
 
 export const testimonials = [
   {
@@ -831,7 +818,7 @@ export const seo = {
     "Design engineer based in Miami. 7 years at Front10 (Billshark, WOXO). Founder of Shoturo and Superfocus. Ships production UI in TypeScript and React. Open to remote, hybrid, and relocation within the US.",
   ogTitle: "Julio Jimenez — Design engineer building AI-native products",
   ogDescription:
-    "Design engineer with 7 years at Front10 and two shipped side projects. Case studies: Shoturo, WOXO, A11ySolutions, Superfocus, Front10, Billshark.",
+    "Design engineer with 7 years at Front10. Work experience: WOXO, Front10, Billshark. Projects: Shoturo, A11ySolutions, Superfocus.",
 };
 
 export function getSiteUrl() {

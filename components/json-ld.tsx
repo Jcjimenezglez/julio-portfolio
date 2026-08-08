@@ -3,7 +3,7 @@ import {
   getPortfolioUrl,
   getResumeUrl,
   profile,
-  projects,
+  allCaseStudies,
   seo,
   skillGroups,
   socialLinks,
@@ -24,7 +24,7 @@ export function JsonLd() {
     description: summary.short,
     knowsAbout: atsKeywords,
     sameAs: socialLinks.map((link) => link.href),
-    workExample: projects.map((project) => ({
+    workExample: allCaseStudies.map((project) => ({
       "@type": "CreativeWork",
       name: project.title,
       description: project.summary,

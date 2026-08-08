@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import type { Project } from "@/lib/site-content";
-import { profile, projects } from "@/lib/site-content";
+import { allCaseStudies, profile, workSections } from "@/lib/site-content";
 import { ProjectCover, ProjectLogo } from "@/components/project-media";
 import { ProjectPanel } from "@/components/project-panel";
 
@@ -58,13 +58,25 @@ export function WorkGallery() {
           <p className="mt-1">{profile.workSubtitle}</p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.slug}
-              project={project}
-              onSelect={setSelected}
-            />
+        <div className="space-y-14">
+          {workSections.map((section) => (
+            <div key={section.id}>
+              <div className="mb-6 max-w-2xl">
+                <h2 className="text-2xl font-semibold text-foreground">
+                  {section.title}
+                </h2>
+                <p className="mt-1 text-muted">{section.description}</p>
+              </div>
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {section.projects.map((project) => (
+                  <ProjectCard
+                    key={project.slug}
+                    project={project}
+                    onSelect={setSelected}
+                  />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -74,7 +86,7 @@ export function WorkGallery() {
           project={selected}
           onClose={() => setSelected(null)}
           onNavigate={(slug) => {
-            const next = projects.find((project) => project.slug === slug);
+            const next = allCaseStudies.find((project) => project.slug === slug);
             if (next) setSelected(next);
           }}
         />
