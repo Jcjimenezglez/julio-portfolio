@@ -69,7 +69,7 @@ export const profile = {
   lastName: "Jimenez",
   fullName: "Julio Jimenez",
   title: "Design Engineer",
-  headline: "Design engineer building AI-native products — in Figma and in code.",
+  headline: "Building AI-native products — in Figma and in code.",
   email: "jcjimenezglez@gmail.com",
   phone: "+1 (786) 973-1476",
   location: "Miami, FL — Open to remote, hybrid & relocation within the US",
