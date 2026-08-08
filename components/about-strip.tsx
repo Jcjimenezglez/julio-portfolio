@@ -8,6 +8,7 @@ export function AboutStrip() {
           <p className="uppercase tracking-[0.2em] text-muted">About</p>
           <h2 className="mt-3">{profile.fullName}</h2>
           <p className="mt-1.5">{profile.title}</p>
+          <p className="mt-1 text-muted">{profile.headline}</p>
         </div>
         <div className="space-y-4 leading-relaxed text-muted">
           <p>{summary.short}</p>

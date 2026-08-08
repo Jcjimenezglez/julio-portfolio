@@ -61,6 +61,7 @@ export function JsonLd() {
       description: profile.headline,
       skills: [
         ...skillGroups.design,
+        ...skillGroups.engineering,
         ...skillGroups.ai,
         ...skillGroups.tools,
         ...skillGroups.methods,

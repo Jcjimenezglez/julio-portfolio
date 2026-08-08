@@ -196,8 +196,8 @@ export function ResumeDocument() {
     <Document
       title={`${profile.fullName} — Resume`}
       author={profile.fullName}
-      subject="Product Engineer Resume"
-      keywords="Product Engineer, Product Design, UI/UX, Generative AI, Cursor, Figma, WOXO, Shoturo"
+      subject="Design Engineer Resume"
+      keywords="Design Engineer, TypeScript, React, Next.js, Design Systems, Generative AI, Cursor, Figma, WOXO, Shoturo"
     >
       <Page size="LETTER" style={styles.page}>
         <Text style={styles.name}>{profile.fullName}</Text>
@@ -227,19 +227,23 @@ export function ResumeDocument() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>CORE SKILLS</Text>
           <View style={styles.skillGroup}>
-            <Text style={styles.skillLabel}>Design</Text>
+            <Text style={styles.skillLabel}>UI & Design</Text>
             <Text>{skillGroups.design.join(" · ")}</Text>
           </View>
           <View style={styles.skillGroup}>
-            <Text style={styles.skillLabel}>Tools</Text>
+            <Text style={styles.skillLabel}>Engineering</Text>
+            <Text>{skillGroups.engineering.join(" · ")}</Text>
+          </View>
+          <View style={styles.skillGroup}>
+            <Text style={styles.skillLabel}>Tools & Platforms</Text>
             <Text>{skillGroups.tools.join(" · ")}</Text>
           </View>
           <View style={styles.skillGroup}>
-            <Text style={styles.skillLabel}>AI & Prototyping</Text>
+            <Text style={styles.skillLabel}>AI & Build</Text>
             <Text>{skillGroups.ai.join(" · ")}</Text>
           </View>
           <View style={styles.skillGroup}>
-            <Text style={styles.skillLabel}>Methods</Text>
+            <Text style={styles.skillLabel}>Workflow</Text>
             <Text>{skillGroups.methods.join(" · ")}</Text>
           </View>
         </View>

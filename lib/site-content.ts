@@ -68,8 +68,8 @@ export const profile = {
   firstName: "Julio",
   lastName: "Jimenez",
   fullName: "Julio Jimenez",
-  title: "Product Engineer",
-  headline: "Designer building AI-native products.",
+  title: "Design Engineer",
+  headline: "Design engineer building AI-native products — in Figma and in code.",
   email: "jcjimenezglez@gmail.com",
   phone: "+1 (786) 973-1476",
   location: "Miami, FL — Open to remote, hybrid & relocation within the US",
@@ -79,107 +79,111 @@ export const profile = {
   github: "https://github.com/Jcjimenezglez",
   cursorProfile: "https://cursor.com/@jcjimenezglez",
   workTitle: "Julio's Work",
-  workSubtitle: "Select product & design work. Tap each card to learn more.",
+  workSubtitle: "Selected design & engineering work. Tap each card to learn more.",
   portfolioPath: "/",
   resumePath: "/api/resume",
 };
 
 export const summary = {
   short:
-    "Designer based in Miami. Seven years at Front10 (2019–2026): Billshark first, then client work across brand, web, and product, then three years as Product Owner on WOXO. I also founded Shoturo and Superfocus. These days I do most of my design and build work in Cursor. Figma is still my main design tool when I need it.",
+    "Design engineer based in Miami. Seven years at Front10 (2019–2026) designing and shipping UI for fintech, SaaS, and AI products — three years as Product Owner on WOXO. I founded Shoturo and Superfocus, both designed and built end-to-end in TypeScript and React via Cursor.",
   long: [
-    "I'm a designer with 7+ years at Front10 (2019–Feb 2026), a Miami software company building AI-powered products. I started on Billshark as a contract designer — brand, typography, icons, and UX for web and mobile — then went full-time across client work: emails, brand, websites, merchandise, and UI components. In 2023 I moved to WOXO, a sister company in the same group, as Product Owner.",
+    "I'm a design engineer with 7+ years at Front10 (2019–Feb 2026), a Miami software company building AI-powered products. I started on Billshark designing brand systems, icons, and production UI for web and mobile — then moved full-time across client work: design systems, marketing sites, and reusable UI components. In 2023 I took over WOXO as Product Owner, owning product, design, and UI quality for an AI video platform.",
     "At WOXO I ran product, design, finances, marketing, and support for an AI video tool that was losing about $404K a year. Over three years we cut that deficit to about $34K, grew revenue from ~$75K to a peak year of ~$250K, and scaled to 1,500 creators at our best point — with 325,000+ videos generated and retention around 15–25%.",
-    "Since mid-2025 I've been working mostly in Cursor (90%+). Figma is still my go-to for design systems and UI when the project calls for it. I have a design background, not engineering — but I understand HTML/CSS and can get functional prototypes and products out the door.",
-    "I founded Shoturo (AI car listing photos, ~$600 revenue, paying users) and Superfocus (Pomodoro focus timer for students, ~$300 revenue). Freelance work for A11ySolutions included a full website redesign and the A11yAgent accessibility widget.",
+    "Since mid-2025 I design and build in Cursor (90%+). I work in TypeScript, React, and Next.js — translating designs into production-quality components, not static handoffs. Figma is still my tool for design systems and visual exploration when a problem needs it.",
+    "I founded Shoturo (AI car listing photos, ~$600 revenue) and Superfocus (Pomodoro focus timer, ~$300 revenue) — both full-stack products I designed and shipped in code. Freelance work for A11ySolutions included a website redesign and the A11yAgent accessibility widget.",
   ],
 };
 
 export const skillGroups = {
   design: [
     "UI/UX Design",
-    "Product Design",
-    "Visual Design",
     "Design Systems",
     "Interaction Design",
+    "Visual Design",
     "Prototyping",
-    "User Research",
-    "Information Architecture",
     "Generative AI UX",
     "Agent UX Patterns",
+    "Motion & Micro-interactions",
   ],
-  ai: [
-    "Cursor",
-    "AI-Assisted Prototyping",
-    "AI-Assisted Development",
+  engineering: [
+    "TypeScript",
+    "React",
+    "Next.js",
+    "CSS",
+    "HTML",
+    "Component Development",
+    "Responsive UI",
+    "Tailwind CSS",
   ],
   tools: [
     "Figma",
-    "Adobe Creative Suite",
-    "Adobe XD",
-    "Sketch",
-    "Miro",
-    "HTML/CSS",
-    "Next.js",
+    "Cursor",
     "Vercel",
+    "GitHub",
+    "Stripe",
+    "Clerk",
+  ],
+  ai: [
+    "AI-Assisted Development",
+    "AI-Assisted Prototyping",
+    "Prompt-to-UI Workflows",
   ],
   methods: [
-    "Design Thinking",
-    "Agile / Scrum",
-    "User Research",
-    "A/B Testing",
-    "Wireframing",
-    "Usability Testing",
-    "Design Handoff",
+    "Rapid Prototyping",
+    "Design-to-Code",
     "Accessibility (WCAG)",
-    "Cross-Functional Collaboration",
+    "Agile / Scrum",
+    "A/B Testing",
+    "Usability Testing",
   ],
 };
 
 export const aiWorkflow = {
   title: "How I work",
   description:
-    "Designer first. I use Cursor to move faster from idea to something real.",
+    "I live at the intersection of design and code — prototyping in hours, shipping production UI.",
   points: [
     {
       label: "Design",
       detail:
-        "Figma is still my main design tool. I use it less than before — since mid-2025, most of my work happens in Cursor.",
+        "Figma for design systems, flows, and high-fidelity UI when the problem needs exploration before code.",
     },
     {
-      label: "Build & prototype",
+      label: "Build in code",
       detail:
-        "Cursor is where I spend 90%+ of my time now. I have a design background and basic HTML/CSS — enough to get prototypes and products working without waiting on a handoff.",
+        "TypeScript, React, and Next.js via Cursor. Since mid-2025, 90%+ of my work goes from idea to production in the editor — not a handoff.",
     },
     {
       label: "AI products",
       detail:
-        "At WOXO I worked on prompt-to-video flows, loading states, pricing, and all the UX that comes with generative tools that don't always get it right the first time.",
+        "At WOXO and in side projects, I design and build the UX around async generation, loading states, error handling, and credit pricing.",
     },
   ],
 };
 
 export const atsKeywords = [
   ...skillGroups.design,
+  ...skillGroups.engineering,
   ...skillGroups.ai,
   ...skillGroups.tools,
   ...skillGroups.methods,
-  "Product Engineer",
+  "Design Engineer",
+  "Front-End Engineering",
   "Generative AI",
   "AI-Native Product Design",
   "SaaS",
-  "Mobile App Design",
+  "Design-to-Code",
   "Video Generation UX",
   "Product Owner",
   "Accessibility (WCAG)",
-  "Inclusive Design",
   "Case Studies",
 ];
 
 export const experience: Experience[] = [
   {
     company: "Shoturo",
-    role: "Founder — Product Designer",
+    role: "Founder — Design Engineer",
     location: "Miami, FL",
     startDate: "Mar 2026",
     endDate: "Present",
@@ -187,7 +191,7 @@ export const experience: Experience[] = [
       "AI photo editor for car listings — background replacement and lighting fixes on real uploads.",
       "Live at shoturo.com with paying users and ~$600 revenue since launch.",
       "Validated demand by DMing Turo hosts before building; credit-based pricing with free trial.",
-      "Built end-to-end in Cursor: marketing site, upload flow, editor, and Stripe payments.",
+      "Designed and built end-to-end in TypeScript, React, and Next.js: marketing site, upload flow, editor, and Stripe payments.",
     ],
   },
   {
@@ -207,14 +211,14 @@ export const experience: Experience[] = [
   },
   {
     company: "Superfocus",
-    role: "Founder — Product Designer",
+    role: "Founder — Design Engineer",
     location: "Miami, FL",
     startDate: "Oct 2025",
     endDate: "Present",
     highlights: [
       "Focus timer for students — Pomodoro presets, Spotify cassettes, tasks, analytics, and leaderboard.",
       "Live at superfocus.live with ~$300 revenue; freemium model at $3.99/mo with 7-day trial.",
-      "Built in Cursor with Clerk auth, Stripe payments, and Todoist/Notion integrations.",
+      "Designed and shipped in TypeScript, React, and Next.js with Clerk auth, Stripe payments, and Todoist/Notion integrations.",
     ],
   },
   {
@@ -227,8 +231,8 @@ export const experience: Experience[] = [
       "Started on Billshark (contract) — brand identity, typography, icons, and UX for web and mobile bill-negotiation tools, working directly with their Product Manager.",
       "Moved full-time into product design across client engagements: email design, brand, websites, merchandise, and UI components for multiple clients.",
       "A11ySolutions (freelance) — redesigned their marketing website and designed the A11yAgent accessibility widget.",
-      "Built design systems, user flows, and production-ready interfaces for fintech, SaaS, and AI products in agile teams.",
-      "Primary tools: Figma through early 2025; transitioned to Cursor-first workflow (90%+) from mid-2025 onward.",
+      "Built design systems and shipped production UI for fintech, SaaS, and AI products in agile teams.",
+      "Figma through early 2025; transitioned to design-to-code workflow in TypeScript and React via Cursor (90%+) from mid-2025 onward.",
     ],
   },
 ];
@@ -559,11 +563,11 @@ export const personalWork: Project[] = [
   {
     slug: "shoturo",
     title: "Shoturo",
-    category: "AI Product Design",
+    category: "Design Engineering",
     year: "Mar 2026 – Present",
     sortYear: 2026,
     workType: "personal",
-    role: "Founder",
+    role: "Founder — Design Engineer",
     client: "Personal Project",
     location: "Miami, FL",
     url: "https://shoturo.com/",
@@ -674,11 +678,11 @@ export const personalWork: Project[] = [
   {
     slug: "superfocus",
     title: "Superfocus",
-    category: "AI-Assisted Product Build",
+    category: "Design Engineering",
     year: "Oct 2025 – Present",
     sortYear: 2025,
     workType: "personal",
-    role: "Founder",
+    role: "Founder — Design Engineer",
     client: "Personal Project",
     location: "Miami, FL",
     url: "https://www.superfocus.live/",
@@ -760,13 +764,13 @@ export const workSections: WorkSection[] = [
   {
     id: "professional",
     title: "Professional Work",
-    description: "Product design at Front10 and client projects.",
+    description: "Design and engineering work at Front10 and client projects.",
     projects: professionalWork,
   },
   {
     id: "personal",
     title: "Personal Work",
-    description: "Side projects designed and built independently.",
+    description: "Side projects designed and built in TypeScript and React.",
     projects: personalWork,
   },
 ];
@@ -822,12 +826,12 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const seo = {
-  title: "Julio Jimenez — Product Engineer",
+  title: "Julio Jimenez — Design Engineer",
   description:
-    "Designer based in Miami. 7 years at Front10 (Billshark, WOXO). Founder of Shoturo and Superfocus. Open to remote, hybrid, and relocation within the US.",
-  ogTitle: "Julio Jimenez — Designer building AI-native products",
+    "Design engineer based in Miami. 7 years at Front10 (Billshark, WOXO). Founder of Shoturo and Superfocus. Ships production UI in TypeScript and React. Open to remote, hybrid, and relocation within the US.",
+  ogTitle: "Julio Jimenez — Design engineer building AI-native products",
   ogDescription:
-    "Product designer with 7 years at Front10 and two side projects. Case studies: Shoturo, WOXO, A11ySolutions, Superfocus, Front10, Billshark.",
+    "Design engineer with 7 years at Front10 and two shipped side projects. Case studies: Shoturo, WOXO, A11ySolutions, Superfocus, Front10, Billshark.",
 };
 
 export function getSiteUrl() {
