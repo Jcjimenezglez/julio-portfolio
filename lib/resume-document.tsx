@@ -68,7 +68,10 @@ export function ResumeDocument() {
           <Link src={profile.linkedIn} style={styles.link}>linkedin.com/in/julio-jimenez-9a114a12b</Link>
         </Text>
         <Text style={styles.contact}>
-          {profile.workAuthorization} | Bilingual English / Spanish | {profile.workPreference}
+          {profile.workAuthorization} | {profile.workPreference}
+        </Text>
+        <Text style={styles.contact}>
+          Languages: Spanish (native), English (professional working)
         </Text>
 
         <View style={styles.section}>
