@@ -1,186 +1,47 @@
-import {
-  Document,
-  Font,
-  Link,
-  Page,
-  StyleSheet,
-  Text,
-  View,
-} from "@react-pdf/renderer";
+import { Document, Font, Link, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 
-import {
-  education,
-  experience,
-  getPortfolioUrl,
-  profile,
-  projects,
-  skillGroups,
-  socialLinks,
-  summary,
-} from "@/lib/site-content";
+import { education, experience, profile, skillGroups } from "@/lib/site-content";
 
 Font.registerHyphenationCallback((word) => [word]);
 
+const PORTFOLIO = "https://www.julio-portfolio.com";
+
 const styles = StyleSheet.create({
-  page: {
-    paddingTop: 40,
-    paddingBottom: 40,
-    paddingHorizontal: 48,
-    fontFamily: "Helvetica",
-    fontSize: 10.5,
-    lineHeight: 1.45,
-    color: "#111111",
-  },
-  name: {
-    fontSize: 22,
-    fontFamily: "Helvetica-Bold",
-    marginBottom: 6,
-    lineHeight: 1.2,
-  },
-  title: {
-    fontSize: 12,
-    marginBottom: 12,
-    color: "#333333",
-    lineHeight: 1.4,
-  },
-  contactBlock: {
-    marginBottom: 18,
-    gap: 5,
-  },
-  contactLine: {
-    fontSize: 9.5,
-    color: "#444444",
-    lineHeight: 1.4,
-  },
-  contactLinkRow: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "baseline",
-    gap: 4,
-  },
-  contactLabel: {
-    fontSize: 9.5,
-    color: "#444444",
-  },
-  link: {
-    color: "#111111",
-    textDecoration: "none",
-    fontSize: 9.5,
-  },
-  linkLine: {
-    color: "#111111",
-    textDecoration: "none",
-    fontSize: 9.5,
-    marginBottom: 4,
-  },
-  section: {
-    marginBottom: 16,
-  },
-  sectionTitle: {
-    fontSize: 10,
-    fontFamily: "Helvetica-Bold",
-    letterSpacing: 1.2,
-    marginBottom: 10,
-    paddingBottom: 5,
-    borderBottomWidth: 1,
-    borderBottomColor: "#dddddd",
-    lineHeight: 1.3,
-  },
-  paragraph: {
-    marginBottom: 6,
-    lineHeight: 1.45,
-  },
-  skillGroup: {
-    marginBottom: 6,
-    lineHeight: 1.4,
-  },
-  skillLabel: {
-    fontFamily: "Helvetica-Bold",
-    marginBottom: 3,
-  },
-  jobHeader: {
-    marginBottom: 5,
-  },
-  jobTitle: {
-    fontFamily: "Helvetica-Bold",
-    fontSize: 10.5,
-    lineHeight: 1.4,
-  },
-  jobMeta: {
-    color: "#555555",
-    marginBottom: 4,
-    lineHeight: 1.4,
-  },
-  bulletRow: {
-    flexDirection: "row",
-    marginBottom: 4,
-    paddingRight: 8,
-  },
-  bullet: {
-    width: 12,
-    lineHeight: 1.45,
-  },
-  bulletText: {
-    flex: 1,
-    lineHeight: 1.45,
-  },
-  projectBlock: {
-    marginBottom: 11,
-  },
-  projectTitle: {
-    fontFamily: "Helvetica-Bold",
-    fontSize: 10.5,
-    marginBottom: 3,
-    lineHeight: 1.4,
-  },
-  projectMeta: {
-    color: "#555555",
-    marginBottom: 4,
-    lineHeight: 1.4,
-  },
-  footer: {
-    marginTop: 8,
-    fontSize: 9,
-    color: "#666666",
-    lineHeight: 1.4,
-  },
+  page: { paddingTop: 36, paddingBottom: 36, paddingHorizontal: 46, fontFamily: "Helvetica", fontSize: 10, lineHeight: 1.3, color: "#111111" },
+  name: { fontSize: 20, fontFamily: "Helvetica-Bold", lineHeight: 1.15 },
+  title: { fontSize: 12, marginTop: 2, marginBottom: 6, color: "#222222" },
+  contact: { fontSize: 9.5, color: "#333333", marginBottom: 2 },
+  link: { color: "#111111", textDecoration: "none" },
+  section: { marginTop: 12 },
+  sectionTitle: { fontSize: 11, fontFamily: "Helvetica-Bold", marginBottom: 5, paddingBottom: 3, borderBottomWidth: 0.75, borderBottomColor: "#999999" },
+  paragraph: { marginBottom: 4 },
+  skillRow: { marginBottom: 3 },
+  bold: { fontFamily: "Helvetica-Bold" },
+  job: { marginBottom: 8 },
+  jobTitle: { fontFamily: "Helvetica-Bold", fontSize: 10.5 },
+  jobMeta: { color: "#444444", marginBottom: 3 },
+  bulletRow: { flexDirection: "row", marginBottom: 2.5 },
+  bullet: { width: 10 },
+  bulletText: { flex: 1 },
 });
 
-function formatLinkLabel(href: string) {
-  return href.replace(/^https?:\/\//, "").replace(/\/$/, "");
-}
+const SUMMARY =
+  "Product Designer with 7+ years designing web and mobile products for fintech, SaaS, and AI companies at Front10 in Miami. As Product Owner of WOXO, an AI video platform, I led a 15-person team of developers, designers, and marketers and owned product strategy, UX, and UI quality; we cut the annual loss from $404K to $34K and grew revenue from $76K to a $265K peak year. I design user flows, design systems, and high-fidelity UI in Figma, and build front-end in React and Next.js.";
 
-function ResumeLink({
-  href,
-  label,
-}: {
-  href: string;
-  label?: string;
-}) {
-  return (
-    <Link src={href} style={styles.linkLine} wrap={false}>
-      {label ?? formatLinkLabel(href)}
-    </Link>
-  );
-}
+const SKILLS: [string, string[]][] = [
+  ["UX", ["User Research (customer interviews)", "User Flows", "Wireframing", "Prototyping", "Information Architecture", "Usability Testing", "A/B Testing", "Accessibility (WCAG)"]],
+  ["UI and Visual", ["UI Design", "Design Systems", "Interaction Design", "Visual Design", "Brand Identity", "Iconography", "Responsive Web and Mobile", "Generative AI UX"]],
+  ["Tools", ["Figma", "Cursor", "GitHub", "Vercel", "Stripe"]],
+  ["Front-end", skillGroups.engineering],
+  ["Ways of working", ["Cross-functional Collaboration", "Agile / Scrum", "Product Ownership", "Design-to-Code"]],
+];
 
-function ContactLinkRow({ label, href }: { label: string; href: string }) {
-  return (
-    <View style={styles.contactLinkRow}>
-      <Text style={styles.contactLabel}>{label}:</Text>
-      <Link src={href} style={styles.link} wrap={false}>
-        {formatLinkLabel(href)}
-      </Link>
-    </View>
-  );
-}
-
-function BulletList({ items }: { items: string[] }) {
+function Bullets({ items }: { items: string[] }) {
   return (
     <>
       {items.map((item) => (
-        <View key={item} style={styles.bulletRow}>
-          <Text style={styles.bullet}>•</Text>
+        <View key={item} style={styles.bulletRow} wrap={false}>
+          <Text style={styles.bullet}>-</Text>
           <Text style={styles.bulletText}>{item}</Text>
         </View>
       ))}
@@ -189,132 +50,68 @@ function BulletList({ items }: { items: string[] }) {
 }
 
 export function ResumeDocument() {
-  const portfolioUrl = getPortfolioUrl();
-  const linkedIn = socialLinks.find((link) => link.label === "LinkedIn");
-
   return (
     <Document
-      title={`${profile.fullName} — Resume`}
+      title={`${profile.fullName} - Product Designer Resume`}
       author={profile.fullName}
-      subject="Design Engineer Resume"
-      keywords="Design Engineer, TypeScript, React, Next.js, Design Systems, Generative AI, Cursor, Figma, WOXO, Shoturo"
+      subject="Product Designer, UX/UI Designer Resume"
+      keywords="Product Designer, UX Designer, UI Designer, UX/UI, Design Systems, User Flows, Prototyping, Figma, Fintech, SaaS, AI"
     >
       <Page size="LETTER" style={styles.page}>
         <Text style={styles.name}>{profile.fullName}</Text>
-        <Text style={styles.title}>{profile.title}</Text>
+        <Text style={styles.title}>Product Designer | UX/UI Designer</Text>
+        <Text style={styles.contact}>
+          {profile.location} | {profile.phone} | {profile.email}
+        </Text>
+        <Text style={styles.contact}>
+          Portfolio: <Link src={PORTFOLIO} style={styles.link}>julio-portfolio.com</Link> | LinkedIn:{" "}
+          <Link src={profile.linkedIn} style={styles.link}>linkedin.com/in/julio-jimenez-9a114a12b</Link>
+        </Text>
+        <Text style={styles.contact}>
+          {profile.workAuthorization} | Bilingual English / Spanish | {profile.workPreference}
+        </Text>
 
-        <View style={styles.contactBlock}>
-          <Text style={styles.contactLine}>
-            {profile.email}  |  {profile.phone}
-          </Text>
-          <Text style={styles.contactLine}>{profile.location}</Text>
-          <ContactLinkRow label="Portfolio" href={portfolioUrl} />
-          {linkedIn ? (
-            <ContactLinkRow label="LinkedIn" href={linkedIn.href} />
-          ) : null}
-          <ContactLinkRow label="GitHub" href={profile.github} />
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Summary</Text>
+          <Text style={styles.paragraph}>{SUMMARY}</Text>
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>PROFESSIONAL SUMMARY</Text>
-          {summary.long.map((paragraph) => (
-            <Text key={paragraph} style={styles.paragraph}>
-              {paragraph}
+          <Text style={styles.sectionTitle}>Skills</Text>
+          {SKILLS.map(([label, items]) => (
+            <Text key={label} style={styles.skillRow}>
+              <Text style={styles.bold}>{label}: </Text>
+              {items.join(", ")}
             </Text>
           ))}
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>CORE SKILLS</Text>
-          <View style={styles.skillGroup}>
-            <Text style={styles.skillLabel}>UI & Design</Text>
-            <Text>{skillGroups.design.join(" · ")}</Text>
-          </View>
-          <View style={styles.skillGroup}>
-            <Text style={styles.skillLabel}>Engineering</Text>
-            <Text>{skillGroups.engineering.join(" · ")}</Text>
-          </View>
-          <View style={styles.skillGroup}>
-            <Text style={styles.skillLabel}>Tools & Platforms</Text>
-            <Text>{skillGroups.tools.join(" · ")}</Text>
-          </View>
-          <View style={styles.skillGroup}>
-            <Text style={styles.skillLabel}>AI & Build</Text>
-            <Text>{skillGroups.ai.join(" · ")}</Text>
-          </View>
-          <View style={styles.skillGroup}>
-            <Text style={styles.skillLabel}>Workflow</Text>
-            <Text>{skillGroups.methods.join(" · ")}</Text>
-          </View>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>PROFESSIONAL EXPERIENCE</Text>
+          <Text style={styles.sectionTitle}>Experience</Text>
           {experience.map((job) => (
-            <View key={`${job.company}-${job.role}`} style={styles.projectBlock}>
-              <View style={styles.jobHeader}>
+            <View key={job.company} style={styles.job}>
+              <View wrap={false}>
                 <Text style={styles.jobTitle}>
-                  {job.role} — {job.company}
+                  {job.role} - {job.company}
                 </Text>
                 <Text style={styles.jobMeta}>
-                  {job.location} | {job.startDate} – {job.endDate}
+                  {job.location} | {job.startDate} - {job.endDate}
                 </Text>
               </View>
-              <BulletList items={job.highlights} />
-            </View>
-          ))}
-        </View>
-      </Page>
-
-      <Page size="LETTER" style={styles.page}>
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>SELECTED PROJECTS</Text>
-          <Text style={styles.paragraph}>
-            Full case studies with screens and metrics:
-          </Text>
-          <ResumeLink href={portfolioUrl} />
-          {projects.map((project) => (
-            <View key={project.slug} style={styles.projectBlock}>
-              <Text style={styles.projectTitle}>
-                {project.title} — {project.role}
-              </Text>
-              <Text style={styles.projectMeta}>
-                {project.year} | {project.tools.slice(0, 5).join(", ")}
-              </Text>
-              {project.url ? <ResumeLink href={project.url} /> : null}
-              <Text style={styles.paragraph}>{project.summary}</Text>
-              <BulletList items={project.results.slice(0, 4)} />
+              <Bullets items={job.highlights} />
             </View>
           ))}
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>EDUCATION</Text>
+        <View style={styles.section} wrap={false}>
+          <Text style={styles.sectionTitle}>Education</Text>
           {education.map((item) => (
             <Text key={item.institution} style={styles.paragraph}>
-              {item.degree} — {item.institution} ({item.year})
+              {item.degree} - {item.institution} ({item.year})
             </Text>
           ))}
           <Text style={styles.paragraph}>
-            {profile.workAuthorization} · {profile.languages}
-          </Text>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>PORTFOLIO & LINKS</Text>
-          <Text style={styles.paragraph}>
-            Online portfolio and case studies:
-          </Text>
-          <ResumeLink href={portfolioUrl} />
-          {socialLinks.map((link) => (
-            <View key={link.label} style={{ marginBottom: 4 }}>
-              <Text style={styles.contactLabel}>{link.label}:</Text>
-              <ResumeLink href={link.href} />
-            </View>
-          ))}
-          <Text style={styles.footer}>
-            Resume generated from portfolio website. Last updated automatically
-            from site content.
+            Case studies (WOXO, Billshark, A11ySolutions, Shoturo, Superfocus): julio-portfolio.com
           </Text>
         </View>
       </Page>

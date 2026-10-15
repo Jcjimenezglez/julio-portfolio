@@ -31,8 +31,27 @@ function ProjectCard({
   );
 }
 
-export function WorkGallery() {
-  const [selected, setSelected] = useState<Project | null>(null);
+export function WorkGallery({ initialSlug }: { initialSlug?: string }) {
+  const [selected, setSelectedState] = useState<Project | null>(
+    () => allCaseStudies.find((project) => project.slug === initialSlug) ?? null,
+  );
+
+  const setSelected = (project: Project | null) => {
+    setSelectedState(project);
+    const path = project ? `/work/${project.slug}` : "/";
+    if (window.location.pathname !== path) window.history.pushState(null, "", path);
+  };
+
+  useEffect(() => {
+    const onPopState = () => {
+      const match = window.location.pathname.match(/^\/work\/([^/]+)/);
+      setSelectedState(
+        allCaseStudies.find((project) => project.slug === match?.[1]) ?? null,
+      );
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
 
   useEffect(() => {
     if (!selected) return;
@@ -51,7 +70,7 @@ export function WorkGallery() {
   }, [selected]);
 
   return (
-    <section id="work" className="px-6 pb-24 pt-28 md:pt-32">
+    <section id="work" className="px-6 pb-24 pt-12 md:pt-16">
       <div className="mx-auto max-w-6xl">
         <div className="space-y-14">
           {workSections.map((section) => (

@@ -12,7 +12,7 @@ export function AboutStrip() {
         </div>
         <div className="space-y-4 leading-relaxed text-muted">
           <p>{summary.short}</p>
-          <p>{summary.long[2]}</p>
+          <p>{summary.long[1]}</p>
           {testimonials[0] ? (
             <blockquote className="border-l-2 border-foreground/30 pl-4 text-foreground">
               <p className="italic">&ldquo;{testimonials[0].quote}&rdquo;</p>

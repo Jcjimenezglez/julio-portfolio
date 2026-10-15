@@ -68,11 +68,15 @@ export const profile = {
   firstName: "Julio",
   lastName: "Jimenez",
   fullName: "Julio Jimenez",
-  title: "Design Engineer",
-  headline: "Building AI-native products — in Figma and in code.",
+  title: "Product Designer · UX/UI",
+  headline:
+    "7+ years designing web and mobile products for fintech, SaaS, and AI — from research and flows to production UI.",
+  pitch:
+    "I led WOXO, an AI video product, as Product Owner with a 15-person team — cutting annual loss from $404K to $34K and growing revenue from $76K to a $265K peak.",
+  location: "Miami, FL",
+  workPreference: "Open to on-site, hybrid, or remote",
   email: "jcjimenezglez@gmail.com",
   phone: "+1 (786) 973-1476",
-  location: "Miami, FL — Open to remote, hybrid & relocation within the US",
   workAuthorization: "US Permanent Resident (Green Card)",
   languages: "Spanish (native) · English (professional)",
   linkedIn: "https://www.linkedin.com/in/julio-jimenez-9a114a12b/",
@@ -84,18 +88,20 @@ export const profile = {
 
 export const summary = {
   short:
-    "Design engineer based in Miami. Seven years at Front10 (2019–2026) designing and shipping UI for fintech, SaaS, and AI products — three years as Product Owner on WOXO. I founded Shoturo and Superfocus, both designed and built end-to-end in TypeScript and React via Cursor.",
+    "Product Designer based in Miami. Seven years at Front10 (Mar 2019 – Feb 2026) designing UX and UI for fintech, SaaS, and AI products — including three years as Product Owner of WOXO, leading a 15-person team. Today I design and build my own products, Shoturo and Superfocus.",
   long: [
-    "I'm a design engineer with 7+ years at Front10 (2019–Feb 2026), a Miami software company building AI-powered products. I started on Billshark designing brand systems, icons, and production UI for web and mobile — then moved full-time across client work: design systems, marketing sites, and reusable UI components. In 2023 I took over WOXO as Product Owner, owning product, design, and UI quality for an AI video platform.",
-    "At WOXO I ran product, design, finances, marketing, and support for an AI video tool that was losing about $404K a year. Over three years we cut that deficit to about $34K, grew revenue from ~$75K to a peak year of ~$250K, and scaled to 1,500 creators at our best point — with 325,000+ videos generated and retention around 15–25%.",
-    "Since mid-2025 I design and build in Cursor (90%+). I work in TypeScript, React, and Next.js — translating designs into production-quality components, not static handoffs. Figma is still my tool for design systems and visual exploration when a problem needs it.",
-    "I founded Shoturo (AI car listing photos, ~$600 revenue) and Superfocus (Pomodoro focus timer, ~$300 revenue) — both full-stack products I designed and shipped in code. Freelance work for A11ySolutions included a website redesign and the A11yAgent accessibility widget.",
+    "Product Designer with 7+ years at Front10 (Miami) designing web and mobile products for fintech, SaaS, and AI clients — user flows, design systems, and production UI. As Product Owner of WOXO, an AI video platform, I led a 15-person team of developers, designers, and marketers; we cut the annual loss from $404K to $34K and grew revenue from $76K to a $265K peak year.",
+    "I work from problem framing and user flows through high-fidelity UI in Figma, and I also build front-end in React and Next.js, so designs ship as real, accessible components.",
   ],
 };
 
 export const skillGroups = {
   design: [
-    "UI/UX Design",
+    "UX Design",
+    "UI Design",
+    "User Flows",
+    "Wireframing",
+    "Information Architecture",
     "Design Systems",
     "Interaction Design",
     "Visual Design",
@@ -103,6 +109,8 @@ export const skillGroups = {
     "Generative AI UX",
     "Agent UX Patterns",
     "Motion & Micro-interactions",
+    "Brand Identity",
+    "Iconography",
   ],
   engineering: [
     "TypeScript",
@@ -128,6 +136,8 @@ export const skillGroups = {
     "Prompt-to-UI Workflows",
   ],
   methods: [
+    "User Research (customer interviews)",
+    "Cross-functional Collaboration",
     "Rapid Prototyping",
     "Design-to-Code",
     "Accessibility (WCAG)",
@@ -166,8 +176,10 @@ export const atsKeywords = [
   ...skillGroups.ai,
   ...skillGroups.tools,
   ...skillGroups.methods,
+  "Product Designer",
+  "UX Designer",
+  "UI Designer",
   "Design Engineer",
-  "Front-End Engineering",
   "Generative AI",
   "AI-Native Product Design",
   "SaaS",
@@ -180,44 +192,41 @@ export const atsKeywords = [
 
 export const experience: Experience[] = [
   {
-    company: "WOXO (Front10 Group)",
-    role: "Product Owner",
+    company: "Independent (Shoturo, Superfocus)",
+    role: "Founder & Product Designer",
     location: "Miami, FL",
-    startDate: "Mar 2023",
-    endDate: "Feb 2026",
+    startDate: "Oct 2025",
+    endDate: "Present",
     highlights: [
-      "Led WOXO — AI video tool that turns a prompt into a YouTube Short — when the product was losing ~$404K a year and had three years to turn around or shut down.",
-      "Cut annual loss from −$404K (2023) to −$34K (2025) — ~92% reduction.",
-      "Grew revenue from $76K (2023) to a $265K peak year (2024).",
-      "Scaled to 1,500 creators at peak, 325,000+ videos generated, ~15–25% retention, and ~2% conversion.",
-      "Ran product, design, finances, marketing, support, and weekly meetings — I implemented Scrum myself on this team.",
-      "Shipped Adobe Firefly integration, caption animations, creator dashboard, credit pricing, and direct YouTube publishing.",
+      "Shoturo (shoturo.com): AI photo editor for car listings. Validated demand by talking to Turo hosts before building; designed and shipped end to end. Live with paying users, ~$600 revenue since Mar 2026 launch.",
+      "Superfocus (superfocus.live): Pomodoro focus app for students with Spotify, Notion, and Todoist integrations; ~$300 revenue.",
+      "Own the full product cycle: user problem, flows, UI, front-end build (Next.js, TypeScript), pricing, and launch.",
     ],
   },
   {
     company: "Front10",
-    role: "Product Designer",
+    role: "Product Designer; Product Owner, WOXO (Mar 2023 - Feb 2026)",
     location: "Miami, FL",
-    startDate: "2019",
+    startDate: "Mar 2019",
     endDate: "Feb 2026",
     highlights: [
-      "Started on Billshark (contract) — brand identity, typography, icons, and UX for web and mobile bill-negotiation tools, working directly with their Product Manager.",
-      "Moved full-time into product design across client engagements: email design, brand, websites, merchandise, and UI components for multiple clients.",
-      "Built design systems and shipped production UI for fintech, SaaS, and AI products in agile teams.",
-      "Figma through early 2025; transitioned to design-to-code workflow in TypeScript and React via Cursor (90%+) from mid-2025 onward.",
+      "WOXO (AI prompt-to-YouTube-Short platform): as Product Owner, led a 15-person team of developers, designers, and marketing, owning product strategy, UX, and UI quality.",
+      "Cut WOXO's annual loss from $404K (2023) to $34K (2025), a ~92% reduction, and grew revenue from $76K (2023) to a $265K peak (2024).",
+      "Scaled WOXO to 1,500 creators at peak and 325,000+ videos generated, with ~15–25% retention and ~2% conversion.",
+      "Designed and shipped the creator dashboard, credit-based pricing, caption animations, Adobe Firefly integration, and direct YouTube publishing; introduced Scrum and ran weekly planning.",
+      "Billshark (fintech client): created brand identity, custom typography, and icons; designed web and mobile UX for onboarding, bill submission, savings estimates, and subscription management with Billshark's Product Manager.",
+      "Designed design systems, reusable UI components, marketing websites, and email campaigns for fintech, SaaS, and AI clients in agile teams.",
     ],
   },
   {
-    company: "Billshark",
-    role: "UX/UI Designer",
+    company: "A11ySolutions",
+    role: "Product Designer (Freelance)",
     location: "Miami, FL",
-    startDate: "2019",
-    endDate: "2019",
+    startDate: "2021",
+    endDate: "2022",
     highlights: [
-      "First project at Front10 — contract engagement designing brand identity, custom typography, icons, and UX for Billshark's fintech platform.",
-      "Delivered UX for onboarding, bill submission, savings estimates, and subscription management.",
-      "Worked task-by-task with Billshark's PM — designs were reviewed and accepted on their timeline.",
-      "Built responsive web and mobile UI for a fintech product handling sensitive financial data.",
+      "Redesigned the marketing website around a clear service architecture (audits, VPATs, design review, remediation, training) and a free-scan conversion CTA.",
+      "Designed A11yAgent, an embeddable accessibility widget that gives end users on-page controls.",
     ],
   },
 ];
@@ -787,8 +796,8 @@ export const education = [
     year: "2012 – 2017",
   },
   {
-    institution: "Coursera — Google UX Design",
-    degree: "In progress (~80% complete)",
+    institution: "Coursera",
+    degree: "Google UX Design Certificate, in progress",
     year: "2021 – present",
   },
 ];
@@ -811,12 +820,12 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const seo = {
-  title: "Julio Jimenez — Design Engineer",
+  title: "Julio Jimenez — Product Designer · UX/UI",
   description:
-    "Design engineer based in Miami. 7 years at Front10 (Billshark, WOXO). Founder of Shoturo and Superfocus. Ships production UI in TypeScript and React. Open to remote, hybrid, and relocation within the US.",
-  ogTitle: "Julio Jimenez — Design engineer building AI-native products",
+    "Product Designer (UX/UI) in Miami. 7+ years at Front10 designing fintech, SaaS, and AI products; Product Owner of WOXO. Case studies: WOXO, Billshark, A11ySolutions, Shoturo, Superfocus.",
+  ogTitle: "Julio Jimenez — Product Designer · UX/UI",
   ogDescription:
-    "Design engineer with 7 years at Front10. Work experience: WOXO, Front10, Billshark. Projects: Shoturo, A11ySolutions, Superfocus.",
+    "Product Designer with 7+ years at Front10. Work experience: WOXO, Front10, Billshark. Projects: Shoturo, A11ySolutions, Superfocus.",
 };
 
 export function getSiteUrl() {
