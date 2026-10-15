@@ -2,6 +2,7 @@
 
 import type { Project } from "@/lib/site-content";
 import { ProjectLogo } from "@/components/project-media";
+import { caseStudies } from "@/lib/case-studies";
 
 function MetaField({ label, value }: { label: string; value: string }) {
   return (
@@ -21,6 +22,14 @@ function TextBlock({ text }: { text: string }) {
         <p key={paragraph}>{paragraph}</p>
       ))}
     </div>
+  );
+}
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <h3 className="text-[32px] font-extrabold leading-tight text-foreground">
+      {children}
+    </h3>
   );
 }
 
@@ -159,6 +168,8 @@ export function ProjectPanel({
   onClose: () => void;
   onNavigate: (slug: string) => void;
 }) {
+  const caseStudy = caseStudies[project.slug];
+
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto p-4 pt-[6vh] sm:p-6 sm:pt-[8vh]">
       <button
@@ -258,36 +269,96 @@ export function ProjectPanel({
 
           <hr className="border-border" />
 
-          <section>
-            <p className="text-[32px] font-extrabold leading-tight text-foreground">
-              Highlights
-            </p>
-            <div className="mt-4 space-y-3">
-              {project.results.map((result) => (
-                <HighlightCard key={result} project={project} text={result} />
-              ))}
-            </div>
-          </section>
+          {caseStudy ? (
+            <>
+              <section>
+                <SectionTitle>Overview</SectionTitle>
+                <dl className="mt-4 space-y-3">
+                  <div>
+                    <dt className="text-muted">Role</dt>
+                    <dd className="mt-1 text-foreground">{project.role}</dd>
+                  </div>
+                  {caseStudy.team ? (
+                    <div>
+                      <dt className="text-muted">Team</dt>
+                      <dd className="mt-1 text-foreground">{caseStudy.team}</dd>
+                    </div>
+                  ) : null}
+                  <div>
+                    <dt className="text-muted">Timeline</dt>
+                    <dd className="mt-1 text-foreground">{caseStudy.timeline}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-muted">Tools</dt>
+                    <dd className="mt-1 text-foreground">{project.tools.join(", ")}</dd>
+                  </div>
+                </dl>
+              </section>
 
-          <section>
-            <p className="text-[32px] font-extrabold leading-tight text-foreground">
-              Problem
-            </p>
-            <TextBlock text={project.problem} />
-          </section>
+              <section>
+                <SectionTitle>Problem</SectionTitle>
+                <TextBlock text={caseStudy.problem} />
+              </section>
 
-          <section>
-            <p className="text-[32px] font-extrabold leading-tight text-foreground">
-              Process
-            </p>
-            <TextBlock text={project.process} />
-          </section>
+              <section>
+                <SectionTitle>Process</SectionTitle>
+                <ol className="mt-4 space-y-4">
+                  {caseStudy.process.map((step, index) => (
+                    <li key={step.label} className="rounded-xl border border-border/80 bg-white/[0.03] p-4">
+                      <p className="font-semibold text-foreground">
+                        {index + 1}. {step.label}
+                      </p>
+                      <p className="mt-1.5 leading-relaxed text-muted">{step.text}</p>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+
+              <section>
+                <SectionTitle>Solution</SectionTitle>
+                <TextBlock text={caseStudy.solution} />
+              </section>
+
+              <section>
+                <SectionTitle>Outcome</SectionTitle>
+                <div className="mt-4 space-y-3">
+                  {caseStudy.outcome.map((result) => (
+                    <HighlightCard key={result} project={project} text={result} />
+                  ))}
+                </div>
+              </section>
+
+              {caseStudy.learnings ? (
+                <section>
+                  <SectionTitle>Learnings</SectionTitle>
+                  <TextBlock text={caseStudy.learnings} />
+                </section>
+              ) : null}
+            </>
+          ) : (
+            <>
+              <section>
+                <SectionTitle>Highlights</SectionTitle>
+                <div className="mt-4 space-y-3">
+                  {project.results.map((result) => (
+                    <HighlightCard key={result} project={project} text={result} />
+                  ))}
+                </div>
+              </section>
+              <section>
+                <SectionTitle>Problem</SectionTitle>
+                <TextBlock text={project.problem} />
+              </section>
+              <section>
+                <SectionTitle>Process</SectionTitle>
+                <TextBlock text={project.process} />
+              </section>
+            </>
+          )}
 
           {project.gallery && project.gallery.length > 0 ? (
             <section>
-              <p className="text-[32px] font-extrabold leading-tight text-foreground">
-                Screens
-              </p>
+              <SectionTitle>Screens</SectionTitle>
               <ProjectGallery images={project.gallery} />
             </section>
           ) : null}
@@ -310,6 +381,8 @@ export function ProjectPanel({
             </section>
           ) : null}
 
+          {!caseStudy ? (
+            <>
           <section>
             <p className="text-[32px] font-extrabold leading-tight text-foreground">
               Tools
@@ -325,6 +398,9 @@ export function ProjectPanel({
               ))}
             </div>
           </section>
+
+            </>
+          ) : null}
 
           {project.keywords.length > 0 ? (
             <section>
