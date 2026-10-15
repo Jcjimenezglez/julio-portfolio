@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { getPortfolioUrl, getResumeUrl } from "@/lib/site-content";
+import { allCaseStudies, getPortfolioUrl, getResumeUrl, getSiteUrl } from "@/lib/site-content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -18,5 +18,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    ...allCaseStudies.map((project) => ({
+      url: `${getSiteUrl()}/work/${project.slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ];
 }
