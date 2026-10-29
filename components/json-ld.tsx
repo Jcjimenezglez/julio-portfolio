@@ -18,11 +18,19 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: profile.fullName,
+    alternateName: "Design Engineer",
     jobTitle: profile.title,
     email: profile.email,
     url: portfolioUrl,
     description: summary.short,
-    knowsAbout: atsKeywords,
+    knowsAbout: [
+      "Design Engineering",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Product Design",
+      ...atsKeywords,
+    ],
     sameAs: socialLinks.map((link) => link.href),
     workExample: allCaseStudies.map((project) => ({
       "@type": "CreativeWork",
@@ -60,6 +68,7 @@ export function JsonLd() {
       jobTitle: profile.title,
       description: profile.headline,
       skills: [
+        ...skillGroups.designEngineering,
         ...skillGroups.design,
         ...skillGroups.engineering,
         ...skillGroups.ai,
