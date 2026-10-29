@@ -1,6 +1,6 @@
 import { Document, Font, Link, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 
-import { education, experience, profile, skillGroups } from "@/lib/site-content";
+import { education, experience, profile, skillGroups, summary } from "@/lib/site-content";
 
 Font.registerHyphenationCallback((word) => [word]);
 
@@ -25,10 +25,8 @@ const styles = StyleSheet.create({
   bulletText: { flex: 1 },
 });
 
-const SUMMARY =
-  "Product Designer with 7+ years designing web and mobile products for fintech, SaaS, and AI companies at Front10 in Miami. As Product Owner of WOXO, an AI video platform, I led a 15-person team of developers, designers, and marketers and owned product strategy, UX, and UI quality; we cut the annual loss from $404K to $34K and grew revenue from $76K to a $265K peak year. I design user flows, design systems, and high-fidelity UI in Figma, and build front-end in React and Next.js.";
-
 const SKILLS: [string, string[]][] = [
+  ["Design Engineering", skillGroups.designEngineering],
   ["UX", ["User Research (customer interviews)", "User Flows", "Wireframing", "Prototyping", "Information Architecture", "Usability Testing", "A/B Testing", "Accessibility (WCAG)"]],
   ["UI and Visual", ["UI Design", "Design Systems", "Interaction Design", "Visual Design", "Brand Identity", "Iconography", "Responsive Web and Mobile", "Generative AI UX"]],
   ["Tools", ["Figma", "Cursor", "GitHub", "Vercel", "Stripe"]],
@@ -52,14 +50,14 @@ function Bullets({ items }: { items: string[] }) {
 export function ResumeDocument() {
   return (
     <Document
-      title={`${profile.fullName} - Product Designer Resume`}
+      title={`${profile.fullName} - Design Engineer / Product Designer Resume`}
       author={profile.fullName}
-      subject="Product Designer, UX/UI Designer Resume"
-      keywords="Product Designer, UX Designer, UI Designer, UX/UI, Design Systems, User Flows, Prototyping, Figma, Fintech, SaaS, AI"
+      subject="Design Engineer, Product Designer Resume"
+      keywords="Design Engineer, React, Next.js, TypeScript, Tailwind CSS, Code Prototyping, Product Designer, UX Designer, UI Designer, UX/UI, Design Systems, User Flows, Prototyping, Figma, Fintech, SaaS, AI"
     >
       <Page size="LETTER" style={styles.page}>
         <Text style={styles.name}>{profile.fullName}</Text>
-        <Text style={styles.title}>Product Designer | UX/UI Designer</Text>
+        <Text style={styles.title}>Design Engineer / Product Designer</Text>
         <Text style={styles.contact}>
           {profile.location} | {profile.phone} | {profile.email}
         </Text>
@@ -76,7 +74,7 @@ export function ResumeDocument() {
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Summary</Text>
-          <Text style={styles.paragraph}>{SUMMARY}</Text>
+          <Text style={styles.paragraph}>{summary.short}</Text>
         </View>
 
         <View style={styles.section}>

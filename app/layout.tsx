@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   title: seo.title,
   description: seo.description,
   keywords: [
+    "Design Engineer",
+    "Design Engineering",
+    "Design Technologist",
+    "Front-End Prototyping",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "Figma to Code",
     "Product Designer",
     "UX Designer",
     "UI Designer",

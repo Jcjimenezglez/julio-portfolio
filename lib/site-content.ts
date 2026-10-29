@@ -68,9 +68,9 @@ export const profile = {
   firstName: "Julio",
   lastName: "Jimenez",
   fullName: "Julio Jimenez",
-  title: "Product Designer · UX/UI",
+  title: "Design Engineer · Product Designer",
   headline:
-    "7+ years designing web and mobile products for fintech, SaaS, and AI — from research and flows to production UI.",
+    "7+ years designing fintech, SaaS, and AI products, and I build them too: React, Next.js, and TypeScript prototypes and shipped products.",
   pitch:
     "I led WOXO, an AI video product, as Product Owner with a 15-person team — cutting annual loss from $404K to $34K and growing revenue from $76K to a $265K peak.",
   location: "Miami, FL",
@@ -88,14 +88,27 @@ export const profile = {
 
 export const summary = {
   short:
-    "Product Designer based in Miami. Seven years at Front10 (Mar 2019 – Feb 2026) designing UX and UI for fintech, SaaS, and AI products — including three years as Product Owner of WOXO, leading a 15-person team. Today I design and build my own products, Shoturo and Superfocus.",
+    "Design Engineer and Product Designer based in Miami. Seven years at Front10 (Mar 2019 – Feb 2026) designing UX and UI for fintech, SaaS, and AI products — including three years as Product Owner of WOXO, leading a 15-person team. Today I design and code my own products, Shoturo and Superfocus, with Next.js, TypeScript, Tailwind, and Vercel.",
   long: [
     "Product Designer with 7+ years at Front10 (Miami) designing web and mobile products for fintech, SaaS, and AI clients — user flows, design systems, and production UI. As Product Owner of WOXO, an AI video platform, I led a 15-person team of developers, designers, and marketers; we cut the annual loss from $404K to $34K and grew revenue from $76K to a $265K peak year.",
-    "I work from problem framing and user flows through high-fidelity UI in Figma, and I also build front-end in React and Next.js, so designs ship as real, accessible components.",
+    "I work from problem framing and flows to high-fidelity UI in Figma, then into code: React, Next.js, TypeScript, Tailwind, and shadcn/ui, built with AI-assisted tools like Cursor and Claude Code. Designs ship as real, accessible components.",
   ],
 };
 
 export const skillGroups = {
+  designEngineering: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "shadcn/ui and Radix",
+    "Code Prototyping",
+    "Figma-to-Code",
+    "Vercel",
+    "Supabase",
+    "Clerk",
+    "Stripe",
+  ],
   design: [
     "UX Design",
     "UI Design",
@@ -171,6 +184,7 @@ export const aiWorkflow = {
 };
 
 export const atsKeywords = [
+  ...skillGroups.designEngineering,
   ...skillGroups.design,
   ...skillGroups.engineering,
   ...skillGroups.ai,
@@ -820,12 +834,12 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const seo = {
-  title: "Julio Jimenez — Product Designer · UX/UI",
+  title: "Julio Jimenez — Design Engineer & Product Designer",
   description:
-    "Product Designer (UX/UI) in Miami. 7+ years at Front10 designing fintech, SaaS, and AI products; Product Owner of WOXO. Case studies: WOXO, Billshark, A11ySolutions, Shoturo, Superfocus.",
-  ogTitle: "Julio Jimenez — Product Designer · UX/UI",
+    "Design Engineer & Product Designer in Miami. 7+ years at Front10 designing and building fintech, SaaS, and AI products in Figma, React, and Next.js. Product Owner of WOXO. Case studies: WOXO, Billshark, A11ySolutions, Shoturo, Superfocus.",
+  ogTitle: "Julio Jimenez — Design Engineer & Product Designer",
   ogDescription:
-    "Product Designer with 7+ years at Front10. Work experience: WOXO, Front10, Billshark. Projects: Shoturo, A11ySolutions, Superfocus.",
+    "Design Engineer & Product Designer with 7+ years at Front10. Work: WOXO, Billshark. Shipped products: Shoturo, Superfocus.",
 };
 
 export function getSiteUrl() {
